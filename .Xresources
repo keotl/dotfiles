@@ -1,0 +1,70 @@
+URxvt.font: xft:fira mono:size=10:antialias=true
+!URxvt.font: 
+xft:inconsolata:size=10:antialias=true
+URxvt.letterSpace: -1
+URxvt*transparent: true
+urxvt*shading: 35
+!urxvt.foreground: #ffffff
+urxvt.scrollBar: false
+
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #282a2e
+*.color8:       #373b41
+
+! red
+*.color1:       #a54242
+*.color9:       #cc6666
+
+! green
+*.color2:       #8c9440
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #de935f
+*.color11:      #f0c674
+
+! blue
+*.color4:       #5f819d
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #85678f
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #5e8d87
+*.color14:      #8abeb7
+
+! white
+*.color7:       #707880
+*.color15:      #c5c8c6
+
+! Enable the extended coloring options
+rofi.color-enabled: true
+!                  bg       border   separator
+rofi.color-window: #282a2e, #707880, #707880
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #282a2e, #c5c8c6, #373b41, #5f819d, #c5c8c6
+rofi.color-active: #d79921, #282a2e, #d79921, #fabd2f, #282a2e
+rofi.color-urgent: #cc241d, #282a2e, #cc241d, #fb4934, #282a2e
+
+rofi.separator-style: solid
+rofi.sidebar-mode: true
+rofi.bw: 1
+rofi.columns: 1
+rofi.padding: 16
+
+rofi.yoffset: 0
+rofi.fake-transparency: false
+rofi.location: 0
+rofi.width: 50
+rofi.font: Hasklig 12
+rofi.lines: 15
+rofi.fixed-num-lines: true
+
