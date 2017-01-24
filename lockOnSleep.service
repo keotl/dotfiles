@@ -1,0 +1,13 @@
+[Unit]
+Description=Lock on sleep
+Before=sleep.target
+
+[Service]
+User=kento
+Environment=DISPLAY=:0
+ExecStart=/bin/i3lock -i /home/kento/.lockscreen.png
+Type=forking
+
+[Install]
+WantedBy=sleep.target
+WantedBy=suspend.target
