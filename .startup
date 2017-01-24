@@ -1,7 +1,8 @@
-xinput --set-prop appletouch "libinput Tapping Enabled" 1
-xinput --set-prop appletouch "libinput Accel Speed" -0.625
-xinput --set-prop appletouch 154 1 0 0 0 0.625 0 0 0 1
-xinput --set-prop appletouch "libinput Natural Scrolling Enabled" 1
+#xinput --set-prop appletouch "libinput Tapping Enabled" 1
+#xinput --set-prop appletouch "libinput Accel Speed" -0.625
+#xinput --set-prop appletouch 154 1 0 0 0 0.625 0 0 0 1
+xinput --set-prop bcm5974 "libinput Natural Scrolling Enabled" 1
+xinput --set-prop bcm5974 "libinput Accel Speed" 0.5
 #export VISUAL=emacs
 #export EDIITOR="emacs -nw"
 xmodmap .Xmodmap

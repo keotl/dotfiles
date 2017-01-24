@@ -1,11 +1,13 @@
 URxvt.font: xft:fira mono:size=10:antialias=true
 !URxvt.font: 
-xft:inconsolata:size=10:antialias=true
-URxvt.letterSpace: -1
+!xft:inconsolata:size=10:antialias=true
+!URxvt.letterSpace: -1
 URxvt*transparent: true
 urxvt*shading: 35
 !urxvt.foreground: #ffffff
 urxvt.scrollBar: false
+
+Xft.dpi: 184
 
 
 ! special
@@ -64,7 +66,8 @@ rofi.yoffset: 0
 rofi.fake-transparency: false
 rofi.location: 0
 rofi.width: 50
-rofi.font: Hasklig 12
+!rofi.font: Hasklig 12
+rofi.font: fira-mono 26
 rofi.lines: 15
 rofi.fixed-num-lines: true
 
