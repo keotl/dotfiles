@@ -35,9 +35,13 @@ emacs.useXIM: false
 *.color2:       #17de4c
 *.color10:      #17de4c
 
-! yellow
-*.color3:       #ff940f
-*.color11:      #ff940f
+! ! yellow
+! *.color3:       #ff940f
+! *.color11:      #ff940f
+
+! yellow (ULaval Yellow)
+*.color3:       #ffd212
+*.color11:      #ffd212
 
 ! blue
 *.color4:       #10a5e1
