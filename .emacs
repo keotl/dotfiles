@@ -30,7 +30,7 @@
     ("065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" default)))
  '(package-selected-packages
    (quote
-    (xresources-theme gh-md ace-window ac-c-headers ac-clang company-anaconda company-go company-irony-c-headers company-web company-shell company-irony magit))))
+    (sublimity xresources-theme gh-md ace-window ac-c-headers ac-clang company-anaconda company-go company-irony-c-headers company-web company-shell company-irony magit))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,3 +41,14 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 (global-set-key (kbd "C-à") 'company-complete) 
+
+
+(setq sublimity-scroll-weight 6
+      sublimity-scroll-drift-length 3)
+
+  (require 'sublimity)
+  (require 'sublimity-scroll)
+
+  ;; (require 'sublimity-map)
+
+  (sublimity-mode 1)
