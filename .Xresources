@@ -14,7 +14,13 @@ emacs.useXIM: false
 ! new custom London Tube
 ! special
 *.foreground:   #d9d8d8
-*.background:   #231f20
+!london tube
+! *.background:   #231f20
+! Ocean
+! *.background:   #2b303b
+
+! Neutral
+*.background:	#1D1F21
 *.cursorColor:  #d9d8d8
 
 ! black
