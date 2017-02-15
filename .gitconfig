@@ -1,0 +1,6 @@
+[color "status"]
+	changed = red normal bold
+	untracked = red normal bold
+	added = green normal bold
+	updated = green normal bold
+	branch = blue normal bold
