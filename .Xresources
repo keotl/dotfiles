@@ -1,49 +1,218 @@
-URxvt.font: xft:fira mono:size=10:antialias=true
+URxvt.font: xft:fira mono:size=11:antialias=true
 !URxvt.font: 
-xft:inconsolata:size=10:antialias=true
+!xft:inconsolata:size=10:antialias=true
 URxvt.letterSpace: -1
 URxvt*transparent: true
+! urxvt*shading: 45
 urxvt*shading: 35
 !urxvt.foreground: #ffffff
 urxvt.scrollBar: false
 
+emacs.useXIM: false
 
+
+! new custom London Tube
 ! special
-*.foreground:   #c5c8c6
-*.background:   #1d1f21
-*.cursorColor:  #c5c8c6
+*.foreground:   #d9d8d8
+*.background:   #231f20
+*.cursorColor:  #d9d8d8
 
 ! black
-*.color0:       #282a2e
-*.color8:       #373b41
+*.color0:       #231f20
+*.color8:       #737171
 
 ! red
-*.color1:       #a54242
-*.color9:       #cc6666
+*.color1:       #ff4f4f
+*.color9:       #ff4f4f
 
 ! green
-*.color2:       #8c9440
-*.color10:      #b5bd68
+*.color2:       #17de4c
+*.color10:      #17de4c
 
 ! yellow
-*.color3:       #de935f
-*.color11:      #f0c674
+*.color3:       #ff940f
+*.color11:      #ff940f
 
 ! blue
-*.color4:       #5f819d
-*.color12:      #81a2be
+*.color4:       #10a5e1
+*.color12:      #10a5e1
 
 ! magenta
-*.color5:       #85678f
-*.color13:      #b294bb
+*.color5:       #f84ed0
+*.color13:      #f84ed0
 
 ! cyan
-*.color6:       #5e8d87
-*.color14:      #8abeb7
+*.color6:       #6dd8d1
+*.color14:      #6dd8d1
 
 ! white
-*.color7:       #707880
-*.color15:      #c5c8c6
+*.color7:       #d9d8d8
+*.color15:      #ffffff
+
+
+
+
+
+! ! London tube
+! ! special
+! *.foreground:   #d9d8d8
+! *.background:   #231f20
+! *.cursorColor:  #d9d8d8
+
+! ! black
+! *.color0:       #231f20
+! *.color8:       #737171
+
+! ! red
+! *.color1:       #ee2e24
+! *.color9:       #ee2e24
+
+! ! green
+! *.color2:       #00853e
+! *.color10:      #00853e
+
+! ! yellow
+! *.color3:       #ffd204
+! *.color11:      #ffd204
+
+! ! blue
+! *.color4:       #009ddc
+! *.color12:      #009ddc
+
+! ! magenta
+! *.color5:       #98005d
+! *.color13:      #98005d
+
+! ! cyan
+! *.color6:       #85cebc
+! *.color14:      #85cebc
+
+! ! white
+! *.color7:       #d9d8d8
+! *.color15:      #ffffff
+
+
+
+!new custom scheme
+! ! special
+! *.foreground:   #c5c8c6
+! *.background:   #1d1f21
+! *.cursorColor:  #c5c8c6
+
+! ! black
+! *.color0:       #1d1f21
+! *.color8:       #969896
+
+! ! red
+! *.color1:       #cc2d2d
+! *.color9:       #cc2d2d
+
+! ! green
+! *.color2:       #68bd23
+! *.color10:      #68bd23
+
+! ! yellow
+! *.color3:       #f0d928
+! *.color11:      #f0d928
+
+! ! blue
+! *.color4:       #2d74b0
+! *.color12:      #2d74b0
+
+! ! magenta
+! *.color5:       #9a3eb5
+! *.color13:      #9a3eb5
+
+! ! cyan
+! *.color6:       #3abeac
+! *.color14:      #3abeac
+
+! ! white
+! *.color7:       #a8aba9
+! *.color15:      #c5c8c6
+
+
+
+! Old Tomorrow theme
+! ! special
+! *.foreground:   #c5c8c6
+! *.background:   #1d1f21
+! *.cursorColor:  #c5c8c6
+
+! ! black
+! *.color0:       #282a2e
+! *.color8:       #373b41
+
+! ! red
+! *.color1:       #a54242
+! *.color9:       #cc6666
+
+! ! green
+! *.color2:       #8c9440
+! *.color10:      #b5bd68
+
+! ! yellow
+! *.color3:       #de935f
+! *.color11:      #f0c674
+
+! ! blue
+! *.color4:       #5f819d
+! *.color12:      #81a2be
+
+! ! magenta
+! *.color5:       #85678f
+! *.color13:      #b294bb
+
+! ! cyan
+! *.color6:       #5e8d87
+! *.color14:      #8abeb7
+
+! ! white
+! *.color7:       #707880
+! *.color15:      #c5c8c6
+
+
+! !custom ocean
+! ! special
+! *.foreground:   #c0c5ce
+! *.background:   #2b303b
+! *.cursorColor:  #c0c5ce
+
+! ! black
+! *.color0:       #2b303b
+! *.color8:       #65737e
+
+! ! red
+! *.color1:       #bf3e4b
+! *.color9:       #bf3e4b
+
+! ! green
+! *.color2:       #7cbe44
+! *.color10:      #7cbe44
+
+! ! yellow
+! *.color3:       #ebb343
+! *.color11:      #ebb343
+
+! ! blue
+! *.color4:       #437bb3
+! *.color12:      #437bb3
+
+! ! magenta
+! *.color5:       #b44ba1
+! *.color13:      #b44ba1
+
+! ! cyan
+! *.color6:       #4ab5b2
+! *.color14:      #4ab5b2
+
+! ! white
+! *.color7:       #7e9bce
+! *.color15:      #eff1f5
+
+
+
+emacs.font:	fira mono 11
 
 ! Enable the extended coloring options
 rofi.color-enabled: true
@@ -64,7 +233,8 @@ rofi.yoffset: 0
 rofi.fake-transparency: false
 rofi.location: 0
 rofi.width: 50
-rofi.font: Hasklig 12
+! rofi.font: Hasklig 12
+rofi.font: fira mono 12
 rofi.lines: 15
 rofi.fixed-num-lines: true
 
