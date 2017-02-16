@@ -27,10 +27,10 @@
  '(custom-enabled-themes (quote (xresources)))
  '(custom-safe-themes
    (quote
-    ("065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" default)))
+    ("a998b8cf015bf7d5cb73fdead248c866ee3a0d3e8cdb54a5d8d084d73eb0fd61" "94b1096093f44d190e1c1600fee4551c126b27394dba0c7ef9f6a99b417eec40" "40d52627dd742e5c0173480a5a1b0875ce37562e94dc4d79a2aaa372e657c9a6" "74c0c0d2ab30031e13e1783bb880fc3efe8e10c31fbc2227f9d017094af02492" "d4fc9b592661bbbd60f5a451e814bd798e43bd10537c96f67169615b0e0d7b08" "8581bbe886659e961cb76fda1c75f5cdadd81bae4a3fd8454f96092221f9eefa" "ed5c57853e564ea1f4709daf25e841a97569803e60642dd31b931ed848dd7808" "62235f686efd5def45d99e84dede5306ec6aca76d1e8071f1077671b50b137ca" "065efdd71e6d1502877fd5621b984cded01717930639ded0e569e1724d058af8" default)))
  '(package-selected-packages
    (quote
-    (sublimity xresources-theme gh-md ace-window ac-c-headers ac-clang company-anaconda company-go company-irony-c-headers company-web company-shell company-irony magit))))
+    (spaceline sublimity xresources-theme gh-md ace-window ac-c-headers ac-clang company-anaconda company-go company-irony-c-headers company-web company-shell company-irony magit))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -52,3 +52,7 @@
   ;; (require 'sublimity-map)
 
   (sublimity-mode 1)
+
+
+(require 'spaceline-config)
+(spaceline-emacs-theme)
