@@ -204,3 +204,5 @@ exec --no-startup-id exec compton --config ~/.compton.conf --xrender-sync --xren
 #exec --no-startup-id exec xmodmap ~/.Xmodmap
 exec --no-startup-id exec sh .startup
 exec --no-startup-id exec fcitx
+exec --no-startup-id exec unclutter &
+exec --no-startup-id exec nm-applet
