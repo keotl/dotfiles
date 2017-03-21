@@ -130,6 +130,8 @@
 (require 'sublimity)
 (require 'sublimity-scroll)
 
+(require 'iso-transl)
+
 ;; (require 'sublimity-map)
 
 (sublimity-mode 1)
