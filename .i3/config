@@ -168,7 +168,16 @@ client.background       #FFFFFF
 
 
 
+#Gaps
+set $default_gaps_inner 10
+set $default_gaps_outer 2
+gaps inner $default_gaps_inner
+gaps outer $default_gaps_outer
 
+for_window [class="^.*"] border pixel 1
+
+smart_gaps on
+# smart_borders on
 
 
 
@@ -183,7 +192,7 @@ bar {
 	statusline #C5C8C6
 #	focused_workspace #FFFFFF #FFFFFF #FFFFFF
 }
-#	position top
+	# position top
         status_command i3status
 }
 
@@ -204,5 +213,5 @@ exec --no-startup-id exec compton --config ~/.compton.conf --xrender-sync --xren
 #exec --no-startup-id exec xmodmap ~/.Xmodmap
 exec --no-startup-id exec sh .startup
 exec --no-startup-id exec fcitx
-exec --no-startup-id exec unclutter &
+# exec --no-startup-id exec unclutter -idle 2 -grab
 exec --no-startup-id exec nm-applet
