@@ -376,7 +376,7 @@
    `(js2-external-variable ((t (:foreground ,red))))
 
    ;; linum-mode
-   `(linum ((t (:foreground ,green :background ,background))))
+   `(linum ((t (:foreground ,'"#7F7F96" :background ,'"#22262E"))))
 
    ;; magit
    `(magit-item-highlight ((t (:background ,background))))
