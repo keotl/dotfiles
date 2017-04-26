@@ -180,6 +180,8 @@
 
 (show-paren-mode 1)
 
-;; (setq initial-buffer-choice (lambda ()
-;;     (org-agenda-list 1)
-;;     (get-buffer "*Org Agenda*")))   
+(require 'paren)
+;; (set-face-background 'show-paren-match (face-background 'region))
+(set-face-background 'show-paren-match (face-background 'default))
+(set-face-foreground 'show-paren-match "magenta")
+(set-face-attribute 'show-paren-match nil :weight 'extra-bold)
