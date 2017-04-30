@@ -36,10 +36,8 @@
 (global-set-key (kbd "C-à") 'company-complete) 
 
 
-
-
-
-
+(setq w32-pass-lwindow-to-system nil)
+(setq w32-lwindow-modifier 'super) ; Left Windows key
 
 
 ;;; xresources-theme.el --- Use your .Xresources as your emacs theme
