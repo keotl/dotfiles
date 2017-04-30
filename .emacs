@@ -852,3 +852,6 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "C-x \"") 'toggle-window-split)
 (global-set-key (kbd "C-x «") 'rotate-windows)
 (global-set-key (kbd "C-x »") 'rotate-windows)
+
+ (require 'sr-speedbar)
+ (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
