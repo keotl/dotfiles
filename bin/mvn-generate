@@ -1,0 +1,9 @@
+if [ "$#" -ne 2 ]; then
+  echo "mvn-generate <group> <artifactId>"
+  exit 1;
+fi
+
+GROUP=$1
+ARTIFACTID=$2
+
+mvn archetype:generate -DgroupId=$1 -DartifactId=$2 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
