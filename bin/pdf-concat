@@ -1,0 +1,10 @@
+#!/bin/bash
+if [ "$#" -le 2 ]; then
+    echo "pdf-concat by KEOTL v0.0.1 using ghostscript"
+    echo "Usage : pdf-concat <outputFile> <files...>"
+    exit 1;
+fi
+
+OUTPUT_FILE=$1;
+
+gs -dBATCH -dNOPAUSE -sDEVICE=pdfwrite -sOutputFile=$OUTPUT_FILE "${@:2}"
