@@ -1,0 +1,50 @@
+'.platform-linux':
+  'ctrl-p': 'core:move-up'
+
+'atom-text-editor':
+  'ctrl-à': 'autocomplete-plus:activate'
+
+'body':
+  'ctrl-x ctrl-w': 'application:new-file'
+  'ctrl-n': 'core:move-down'
+  'ctrl-y': 'core:paste'
+  'ctrl-k up': 'unset!'
+  'ctrl-k down': 'unset!'
+  'ctrl-k left': 'unset!'
+  'ctrl-k right': 'unset!'
+  'ctrl-k ctrl-w': 'unset!'
+  'ctrl-k ctrl-alt-w': 'unset!'
+  'ctrl-k ctrl-p': 'unset!'
+  'ctrl-k ctrl-n': 'unset!'
+  'ctrl-k ctrl-up': 'unset!'
+  'ctrl-k ctrl-down': 'unset!'
+  'ctrl-k ctrl-left': 'unset!'
+  'ctrl-k ctrl-right': 'unset!'
+'atom-workspace atom-text-editor':
+  'unset!': 'core:save-as'
+  'ctrl-y': 'unset!'
+  'ctrl-k ctrl-u': 'unset!'
+  'ctrl-k ctrl-l': 'unset!'
+'atom-workspace atom-text-editor:not([mini])':
+  'ctrl-k ctrl-0': 'unset!'
+  'ctrl-k ctrl-1': 'unset!'
+  'ctrl-k ctrl-2': 'unset!'
+  'ctrl-k ctrl-3': 'unset!'
+  'ctrl-k ctrl-4': 'unset!'
+  'ctrl-k ctrl-5': 'unset!'
+  'ctrl-k ctrl-6': 'unset!'
+  'ctrl-k ctrl-7': 'unset!'
+  'ctrl-k ctrl-8': 'unset!'
+  'ctrl-k ctrl-9': 'unset!'
+'.platform-win32, .platform-linux': 'ctrl-k ctrl-b': 'unset!'
+'.platform-win32 .tree-view, .platform-linux .tree-view':
+  'ctrl-k right': 'unset!'
+  'ctrl-k l': 'unset!'
+  'ctrl-k left': 'unset!'
+  'ctrl-k h': 'unset!'
+  'ctrl-k up': 'unset!'
+  'ctrl-k k': 'unset!'
+  'ctrl-k down': 'unset!'
+  'ctrl-k j': 'unset!'
+'.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
+  'ctrl-k ctrl-d': 'unset!'

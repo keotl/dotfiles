@@ -1,0 +1,29 @@
+"*":
+  "autocomplete-plus":
+    enableAutoActivation: false
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".buckconfig"
+        ".hgrc"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tree-view"
+    ]
+    telemetryConsent: "no"
+  esformatter:
+    formatOnSave: true
+  "exception-reporting":
+    userId: "555837f7-1b30-49f0-9758-161b005cfe27"
+  jsformat:
+    e4x: true
+  nuclide:
+    "nuclide-flow":
+      warnOnNotInstalled: false
