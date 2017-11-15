@@ -22,9 +22,12 @@
   'ctrl-k ctrl-right': 'unset!'
 'atom-workspace atom-text-editor':
   'unset!': 'core:save-as'
+  'ctrl-x ctrl-w': 'unset!'
   'ctrl-y': 'unset!'
   'ctrl-k ctrl-u': 'unset!'
   'ctrl-k ctrl-l': 'unset!'
+  'alt-«': 'core:move-to-top'
+  'alt-»': 'core:move-to-bottom'
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-k ctrl-0': 'unset!'
   'ctrl-k ctrl-1': 'unset!'
@@ -48,3 +51,10 @@
   'ctrl-k j': 'unset!'
 '.platform-win32 atom-text-editor, .platform-linux atom-text-editor':
   'ctrl-k ctrl-d': 'unset!'
+
+'.platform-linux atom-workspace, .platform-win32 atom-workspace':
+  'alt-b b': 'unset!'
+  'alt-b d': 'unset!'
+  'alt-b r': 'unset!'
+  'alt-b s': 'unset!'
+  'alt-b t': 'unset!'
