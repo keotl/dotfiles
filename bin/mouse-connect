@@ -1,4 +1,4 @@
 (setsid echo -e 'power on\nconnect 00:14:51:C6:AF:E3 \nquit' | bluetoothctl &&
-sleep 20 &&
+sleep 30 &&
 sh .startup &)
 
