@@ -3,6 +3,8 @@
 
 'atom-text-editor':
   'ctrl-à': 'autocomplete-plus:activate'
+  'ctrl-x ctrl-tab': 'atom-beautify:beautify-editor'
+
 
 'body':
   'ctrl-x ctrl-w': 'application:new-file'
@@ -20,6 +22,10 @@
   'ctrl-k ctrl-down': 'unset!'
   'ctrl-k ctrl-left': 'unset!'
   'ctrl-k ctrl-right': 'unset!'
+  'ctrl-shift-tab ^ctrl': 'unset!'
+  'ctrl-tab ^ctrl': 'unset!'
+  'ctrl-tab': 'unset!'
+
 'atom-workspace atom-text-editor':
   'unset!': 'core:save-as'
   'ctrl-x ctrl-w': 'unset!'
@@ -28,6 +34,9 @@
   'ctrl-k ctrl-l': 'unset!'
   'alt-«': 'core:move-to-top'
   'alt-»': 'core:move-to-bottom'
+  'alt-;': 'unset!'
+  'ctrl-x ctrl-;': 'editor:toggle-line-comments'
+
 'atom-workspace atom-text-editor:not([mini])':
   'ctrl-k ctrl-0': 'unset!'
   'ctrl-k ctrl-1': 'unset!'
