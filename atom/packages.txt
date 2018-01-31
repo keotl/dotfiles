@@ -1,0 +1,5 @@
+atom-beautify@0.30.9
+atomic-emacs@0.12.1
+nuclide@0.280.0
+nuclide-format-js@0.0.44
+

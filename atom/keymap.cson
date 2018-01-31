@@ -25,6 +25,8 @@
   'ctrl-shift-tab ^ctrl': 'unset!'
   'ctrl-tab ^ctrl': 'unset!'
   'ctrl-tab': 'unset!'
+  'ctrl-k ctrl-alt-w': 'unset!'
+  'ctrl-x ctrl-shift-c': 'pane:close-other-items'
 
 'atom-workspace atom-text-editor':
   'unset!': 'core:save-as'
@@ -67,3 +69,6 @@
   'alt-b r': 'unset!'
   'alt-b s': 'unset!'
   'alt-b t': 'unset!'
+
+'atom-workspace':
+  'ctrl-x ctrl-c': 'unset!'
