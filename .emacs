@@ -381,4 +381,4 @@ Including indent-buffer, which should not be called automatically on save."
 (global-set-key (kbd "C-M-g") 'magit-status)
 
 (add-to-list 'display-buffer-alist
-             '("**" display-buffer-same-window))
+             '("?!*" display-buffer-same-window))
