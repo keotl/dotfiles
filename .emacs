@@ -379,3 +379,6 @@ Including indent-buffer, which should not be called automatically on save."
  (require 'sr-speedbar)
  (global-set-key (kbd "s-s") 'sr-speedbar-toggle)
 (global-set-key (kbd "C-M-g") 'magit-status)
+
+(add-to-list 'display-buffer-alist
+             '("**" display-buffer-same-window))
