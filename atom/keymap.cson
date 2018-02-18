@@ -1,6 +1,8 @@
 '.platform-linux':
   'ctrl-p': 'core:move-up'
-
+'.platform-linux .go-to-line atom-text-editor[mini]':
+  'ctrl-w': 'unset!'
+  'ctrl-g': 'core:cancel'
 'atom-text-editor':
   'ctrl-à': 'autocomplete-plus:activate'
   'ctrl-x ctrl-tab': 'atom-beautify:beautify-editor'
@@ -27,6 +29,11 @@
   'ctrl-tab': 'unset!'
   'ctrl-k ctrl-alt-w': 'unset!'
   'ctrl-x ctrl-shift-c': 'pane:close-other-items'
+  'ctrl-c': 'unset!'
+  'ctrl-x': 'unset!'
+  'ctrl-w': 'unset!'
+  'ctrl-,': 'unset!'
+
 
 'atom-workspace atom-text-editor':
   'unset!': 'core:save-as'
@@ -71,4 +78,8 @@
   'alt-b t': 'unset!'
 
 'atom-workspace':
-  'ctrl-x ctrl-c': 'unset!'
+  'ctrl-x 0': 'unset!'
+  'ctrl-x ctrl-c': 'pane:close'
+
+'body.platform-linux':
+  'ctrl-c': 'unset!'

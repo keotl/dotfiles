@@ -1,6 +1,8 @@
 "*":
+  "atom-ide-ui":
+    "atom-ide-outline-view": {}
   "autocomplete-plus":
-    enableAutoActivation: false
+    enableAutoActivation: true
   core:
     customFileTypes:
       "source.ini": [
@@ -14,16 +16,21 @@
       "source.python": [
         "BUCK"
       ]
-    disabledPackages: [
-      "tree-view"
-    ]
+    debugLSP: true
     telemetryConsent: "no"
   esformatter:
     formatOnSave: true
   "exception-reporting":
     userId: "555837f7-1b30-49f0-9758-161b005cfe27"
+  "ide-python": {}
   jsformat:
     e4x: true
   nuclide:
     "nuclide-flow":
       warnOnNotInstalled: false
+  "project-manager":
+    alwaysOpenInSameWindow: true
+  "tree-view":
+    autoReveal: true
+    hideVcsIgnoredFiles: true
+    squashDirectoryNames: true

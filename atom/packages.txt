@@ -1,5 +1,23 @@
-atom-beautify@0.30.9
-atomic-emacs@0.12.1
-nuclide@0.280.0
-nuclide-format-js@0.0.44
+[36mCommunity Packages (21)[39m /home/atreides/.atom/packages
+├── atom-beautify@0.30.9
+├── atom-ide-ui@0.8.1
+├── atomic-emacs@0.12.1
+├── color-picker@2.2.5
+├── ide-cpp@0.0.3
+├── ide-css@0.2.0
+├── ide-go@0.6.1
+├── ide-html@0.4.1
+├── ide-json@0.2.0
+├── ide-python@0.7.0
+├── ide-ruby@0.1.9
+├── ide-rust@0.11.2
+├── ide-scala@0.5.0
+├── ide-vue@0.1.8
+├── ide-yaml@0.4.2
+├── language-rust@0.4.12
+├── language-scala@1.1.9
+├── language-vue@0.23.1
+├── language-vue-component@0.5.0
+├── less-than-slash@0.18.0
+└── project-manager@3.3.5
 
