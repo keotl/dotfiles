@@ -83,3 +83,7 @@
 
 'body.platform-linux':
   'ctrl-c': 'unset!'
+
+'atom-text-editor:not(.mini)':
+  'ctrl-alt-r': 'unset!'
+  'shift-f6': 'refactor:rename'
