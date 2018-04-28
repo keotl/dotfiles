@@ -2,8 +2,7 @@
 Description=Powertop tunings
 
 [Service]
-ExecStart=/usr/bin/powertop --auto-tune
-ExecStartPost=/usr/bin/bash -c "echo 'on' > '/sys/bus/usb/devices/5-1/power/control'"
+ExecStart=/usr/sbin/powertop --auto-tune
 RemainAfterExit=true
 
 [Install]
