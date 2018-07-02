@@ -14,11 +14,13 @@ ide-scala@0.5.0
 ide-vue@0.1.8
 ide-yaml@0.4.2
 js-refactor@0.8.1
+language-javascript-jsx@0.3.7
 language-rust@0.4.12
 language-scala@1.1.9
 language-vue@0.23.1
 language-vue-component@0.5.0
 less-than-slash@0.18.0
 project-manager@3.3.5
+react@0.18.0
 refactor@0.11.5
 
