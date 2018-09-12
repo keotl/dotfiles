@@ -5,7 +5,7 @@ Before=sleep.target
 [Service]
 User=kento
 Environment=DISPLAY=:0
-ExecStart=/bin/i3lock -i /home/kento/.lockscreen.png
+ExecStart=/usr/bin/i3lock -i /home/atreides/.lockscreen.png
 Type=forking
 
 [Install]
