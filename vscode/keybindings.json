@@ -215,5 +215,20 @@
     {
         "key": "ctrl+w",
         "command": "-workbench.action.closeActiveEditor"
+    },
+    {
+        "key": "ctrl+x ctrl+y",
+        "command": "editor.action.clipboardPasteAction",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "-redo",
+        "when": "textInputFocus && !editorReadonly"
     }
 ]
