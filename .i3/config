@@ -74,7 +74,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+c split h
+#bindsym $mod+c split h
 
 # split in vertical orientation
 bindsym $mod+period split v
@@ -208,6 +208,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id exec xbacklight -dec 20
 bindsym $mod+Shift+q exec setxkbmap -layout ca && xmodmap .Xmodmap
 bindsym $mod+Shift+m exec setxkbmap -layout fr -variant bepo && xmodmap .Xmodmap
 
+#pip mode
+bindsym $mod+comma fullscreen disable; floating enable; resize set 600 400; sticky enable; move window to position 1940 54
 
 hide_edge_borders smart
 
@@ -220,3 +222,4 @@ exec --no-startup-id exec fcitx
 # exec --no-startup-id exec unclutter -idle 2 -grab
 exec --no-startup-id exec nm-applet
 exec --no-startup-id exec redshift -l 45.423556:-75.700886 -t 6200K:3500K
+exec --no-startup-id exec ibus-daemon
