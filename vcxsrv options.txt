@@ -1,0 +1,1 @@
+-xkblayout fr -xkbvariant bepo -xkbmodel pc105
