@@ -159,13 +159,15 @@ bindsym $mod+o mode "resize"
 
 #Window colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #5F819D #285577 #C5C8C6 #719ABB	  #285577
-client.focused_inactive #333333 #5f676a #C5C8C6 #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused          #00003d #dbdfbc #000021 #719ABB   #00004d
+client.focused_inactive #000021 #000021 #dbdfbc #484e50   #5f676a
+client.unfocused        #000021 #000021 #dbdfbc #292d2e   #000021
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
-client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #000021
 
 client.background       #FFFFFF
+
+
 
 
 
@@ -188,12 +190,14 @@ smart_gaps on
 
 
 bar {
-	colors {
-	background #1d1f21
-	statusline #C5C8C6
-#	focused_workspace #FFFFFF #FFFFFF #FFFFFF
+        colors {
+        background #000021
+        statusline #dbdfbc
+        focused_workspace #dbdfbc #dbdfbc #000021
+  inactive_workspace #dbdfbc #000021 #dbdfbc
+
 }
-	# position top
+        # position top
         status_command i3status
 }
 

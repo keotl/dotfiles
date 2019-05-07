@@ -7,7 +7,7 @@ URxvt*transparent: true
 urxvt*shading: 35
 !urxvt.foreground: #ffffff
 urxvt.scrollBar: false
-Xft.dpi: 116
+Xft.dpi: 120
 
 emacs.useXIM: false
 
@@ -239,8 +239,8 @@ rofi.sidebar-mode: true
 rofi.bw: 1
 rofi.columns: 1
 rofi.padding: 16
+rofi.yoffset: -300
 
-rofi.yoffset: 0
 rofi.fake-transparency: false
 rofi.location: 0
 rofi.width: 50
