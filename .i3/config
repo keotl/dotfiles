@@ -194,11 +194,11 @@ bar {
         background #000021
         statusline #dbdfbc
         focused_workspace #dbdfbc #dbdfbc #000021
-  inactive_workspace #dbdfbc #000021 #dbdfbc
+        inactive_workspace #dbdfbc #000021 #dbdfbc
 
 }
         # position top
-        status_command i3status
+        status_command i3status | ~/.i3/i3barWrapper.py
 }
 
 #Audio media keys
@@ -219,10 +219,10 @@ hide_edge_borders smart
 
 exec --no-startup-id exec feh --bg-scale ~/.wallpaper.jpg &
 exec --no-startup-id exec xrdb ~/.Xresources
-exec --no-startup-id exec compton --config ~/.compton.conf --xrender-sync --xrender-sync-fence
+exec --no-startup-id exec compton
 #exec --no-startup-id exec xmodmap ~/.Xmodmap
 exec --no-startup-id exec sh .startup
-exec --no-startup-id exec fcitx
+#exec --no-startup-id exec fcitx
 # exec --no-startup-id exec unclutter -idle 2 -grab
 exec --no-startup-id exec nm-applet
 exec --no-startup-id exec redshift -l 45.423556:-75.700886 -t 6200K:3500K
