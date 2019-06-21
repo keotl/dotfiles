@@ -1,5 +1,38 @@
 {
-    "telemetry.enableTelemetry": false,
-    "files.autoSave": "afterDelay",
-    "window.zoomLevel": 0
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "files.autoSave": "afterDelay",
+  "window.titleBarStyle": "custom",
+  "editor.renderWhitespace": "none",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vs-kubernetes": {
+    "vs-kubernetes.minikube-path": "/home/atreides/.vs-kubernetes/tools/minikube/linux-amd64/minikube",
+    "vs-kubernetes.helm-path": "/home/atreides/.vs-kubernetes/tools/helm/linux-amd64/helm",
+    "vs-kubernetes.draft-path": "/home/atreides/.vs-kubernetes/tools/draft/linux-amd64/draft"
+  },
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 0,
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editor.enablePreview": false,
+  "jest.debugCodeLens.showWhenTestStateIn": [
+    "fail",
+    "unknown",
+    "pass"
+  ],
+  "jest.autoEnable": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "explorer.confirmDragAndDrop": false,
+  "cSpell.userWords": [
+    "testid"
+  ]
 }

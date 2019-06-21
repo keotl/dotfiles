@@ -1,2 +1,12 @@
+burkeholland.simple-react-snippets
 dsznajder.es7-react-js-snippets
+esbenp.prettier-vscode
 hiro-sun.vscode-emacs
+ms-kubernetes-tools.vscode-kubernetes-tools
+ms-vscode.csharp
+ms-vscode.vscode-typescript-tslint-plugin
+Orta.vscode-jest
+pgourlain.erlang
+redhat.vscode-yaml
+ryu1kn.annotator
+streetsidesoftware.code-spell-checker
