@@ -36,13 +36,14 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+B kill
 
 # start dmenu (a program launcher)
-bindsym $mod+Shift+i exec --no-startup-id dmenu_run
+# bindsym $mod+Shift+i exec --no-startup-id dmenu_run
 bindsym $mod+i exec --no-startup-id rofi -show run
+bindsym $mod+Shift+i exec --no-startup-id rofi -show window
 
-#Setup windows for japanese study
+#setup windows for japanese study
 bindsym $mod+Shift+w exec --no-startup-id sh ~/scripts/i3/tagainijisho.sh
 
-bindsym $mod+Shift+l exec i3lock -i /home/atreides/.lockscreen.png
+bindsym $mod+Shift+l exec betterlockscreen --lock blur
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
@@ -110,8 +111,8 @@ bindsym $mod+plus workspace 7
 bindsym $mod+minus workspace 8
 bindsym $mod+slash workspace 9
 bindsym $mod+asterisk workspace 10
-bindsym $mod+equal workspace 11
-bindsym $mod+percent workspace 12
+# bindsym $mod+equal workspace 11
+# bindsym $mod+percent workspace 12
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace 1
@@ -124,8 +125,8 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+equal move container to workspace 11
-bindsym $mod+Shift+percent move container to workspace 12
+# bindsym $mod+Shift+equal move container to workspace 11
+# bindsym $mod+Shift+percent move container to workspace 12
 
 # reload the configuration file
 bindsym $mod+Shift+X reload
@@ -182,6 +183,9 @@ gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
 
 for_window [class="^.*"] border pixel 2
+# jetbrains focus hack
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 smart_gaps on
 # smart_borders on
@@ -206,9 +210,9 @@ bar {
 }
 
 #Audio media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec --no-startup-id exec xbacklight -dec 20
 
