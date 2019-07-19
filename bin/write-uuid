@@ -1,0 +1,3 @@
+#!/bin/bash
+printf $(uuidgen) | xvkbd -utf8 -delay 5 -file -
+
