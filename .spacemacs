@@ -144,8 +144,8 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+   dotspacemacs-default-font '("Fira Code"
+                               :size 14
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -332,12 +332,17 @@ you should place your code here."
   ;;                 ))
   
   ;; (spacemacs/set-leader-keys "mà" 'tide-fix)
-  (global-set-key (kbd "C-à") 'tide-fix)
-  (global-set-key (kbd "C-c C-à") 'spacemacs/next-error)
-  ;; (global-set-key (kbd "C-c C-f") 'typescript/format)
-  (global-set-key (kbd "C-c C-f") 'prettier-js)
-  (global-set-key (kbd "C-x C-<return>") 'typescript/jump-to-type-def)
-  (global-set-key (kbd "C-x o") 'ace-window)
+
+  (add-hook 'typescript-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-à") 'tide-fix)
+              (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
+              (local-set-key (kbd "C-c C-f") 'prettier-js)
+              (local-set-key (kbd "C-x C-<return>") 'typescript/jump-to-type-def)
+              (local-set-key (kbd "M-m m i o") 'tide-organize-imports)
+              (local-set-key (kbd "C-x o") 'ace-window)
+              ))
+
   ;; (define-key spacemacs-typescript-mode-map (kbd "C-à") 'tide-fix)
   ;; (define-key spacemacs-typescript-mode-map (kbd "C-c C-à") 'next-error)
 
