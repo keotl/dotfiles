@@ -312,6 +312,7 @@ executes.
  This function is mostly useful for variables that need to be set
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
+  (setq x-gtk-use-system-tooltips nil)
   )
 
 (defun dotspacemacs/user-config ()
