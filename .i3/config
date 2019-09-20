@@ -29,6 +29,8 @@ font pango:fira code 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+focus_wrapping no
+
 # start a terminal
 bindsym $mod+Return exec urxvt
 
@@ -84,7 +86,7 @@ bindsym $mod+period split v
 bindsym $mod+e fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+u layout stacking
+# bindsym $mod+u layout stacking
 bindsym $mod+eacute layout tabbed
 bindsym $mod+p layout toggle split
 

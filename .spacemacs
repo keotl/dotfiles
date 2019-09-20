@@ -45,12 +45,12 @@ values."
      ;; ----------------------------------------------------------------
      python
      helm
+     csharp
      auto-completion
      better-defaults
      emacs-lisp
      git
      markdown
-     prettier
      org
      (shell :variables
             shell-default-height 30
@@ -148,7 +148,7 @@ values."
                                :size 14
                                :weight normal
                                :width normal
-                               :powerline-scale 1.1)
+                               :powerline-scale 1.2)
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
@@ -313,7 +313,39 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq x-gtk-use-system-tooltips nil)
+
+  ;; Savoy Truffle theme
+  (custom-set-variables '(spacemacs-theme-custom-colors
+                          '((bg1 . "#0A0A15")
+                            (bg2 . "#040D26")
+                            (act1 . "#0A0A15")
+                            (act2 . "#040D26")
+                            (border . "#073447")
+                            (base . "#A9B7C6")
+                            (type . "#10A5E1")
+                            (str . "#17DE4C")
+                            (keyword . "#FFD212")
+                            (func . "#6DD8D1")
+                            (const . "#10A5E1")
+                            (comment . "#808080")
+                            (comment-bg . "#0A0A15")
+                            (comp . "#FFA322")
+                            (comp . "#F84ED0")
+                            (var . "#F84ED0")
+                            (highlight . "#073447")
+                            (mat . "#FFA322")
+                            (err . "#BC3F3C")
+                            (war . "#BC3F3C")
+                            (cursor . "#A9B7C6")
+
+                            (ttip-bg . "#040D26")
+                            (ttip-sl . "#073447")
+
+                            )))
+
   )
+
+
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
@@ -327,6 +359,48 @@ you should place your code here."
   (setq neo-smart-open t)
   (setq shell-file-name "/bin/bash")
   (setq aw-keys '(?a ?u ?i ?e ?, ?c ?t ?s ?r))
+
+  (defun isearch-exit-mark-match ()
+    "Exit isearch and mark the current match."
+    (interactive)
+    (isearch-exit)
+    (push-mark isearch-other-end)
+    (activate-mark))
+
+  (define-key isearch-mode-map (kbd "<C-return>") #'isearch-exit-mark-match)
+
+  (setq omnisharp-server-executable-path "/home/atreides/apps/omnisharp/run")
+  (eval-after-load
+      'company
+    '(add-to-list 'company-backends #'company-omnisharp))
+
+  (defun my-csharp-mode-setup ()
+    (omnisharp-mode)
+    (company-mode)
+    (flycheck-mode)
+
+    (setq indent-tabs-mode nil)
+    (setq c-syntactic-indentation t)
+    (c-set-style "ellemtel")
+    (setq c-basic-offset 4)
+    (setq truncate-lines t)
+    (setq tab-width 4)
+    (setq evil-shift-width 4)
+    (electric-pair-local-mode 1) ;; Emacs 25
+    (local-set-key (kbd "C-à") 'omnisharp-run-code-action-refactoring)
+    (local-set-key (kbd "C-c C-f") 'omnisharp-code-format-entire-file)
+    (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
+    (local-set-key (kbd "C-x C-<return>") 'omnisharp-go-to-definition)
+    (local-set-key (kbd "M-m m c t t") 'omnisharp-unit-test-at-point)
+    (local-set-key (kbd "M-m m c t b") 'omnisharp-unit-test-buffer)
+    (local-set-key (kbd "M-m m c t a") 'omnisharp-unit-test-all)
+
+    (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
+    (local-set-key (kbd "C-c C-c") 'recompile))
+
+  (global-set-key (kbd "C-x o") 'ace-window)
+  (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
+
   ;; (setq-default dotspacemacs-configuration-layers
   ;;               '((typescript :variables
   ;;                             typescript-fmt-tool . prettier)
@@ -334,6 +408,7 @@ you should place your code here."
   
   ;; (spacemacs/set-leader-keys "mà" 'tide-fix)
 
+  (setq tide-tsserver-executable "/home/atreides/apps/TypeScript/built/local/tsserver.js")
   (add-hook 'typescript-mode-hook
             (lambda ()
               (local-set-key (kbd "C-à") 'tide-fix)
@@ -341,13 +416,13 @@ you should place your code here."
               (local-set-key (kbd "C-c C-f") 'prettier-js)
               (local-set-key (kbd "C-x C-<return>") 'typescript/jump-to-type-def)
               (local-set-key (kbd "M-m m i o") 'tide-organize-imports)
-              (local-set-key (kbd "C-x o") 'ace-window)
               ))
-
-  ;; (define-key spacemacs-typescript-mode-map (kbd "C-à") 'tide-fix)
-  ;; (define-key spacemacs-typescript-mode-map (kbd "C-c C-à") 'next-error)
-
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+  (global-set-key (kbd "M-j") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back
+  (global-set-key (kbd "C-x C-/") 'undo-tree-redo)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -362,7 +437,7 @@ you should place your code here."
  '(f90-smart-end-names nil)
  '(package-selected-packages
    (quote
-    (prettier-js jest web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data tide typescript-mode insert-shebang fish-mode company-shell lv transient yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern tern coffee-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic csv-mode xterm-color unfill smeargle shell-pop orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor eshell-z eshell-prompt-extras esh-help diff-hl company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
+    (omnisharp csharp-mode prettier-js jest web-mode tagedit slim-mode scss-mode sass-mode pug-mode less-css-mode helm-css-scss haml-mode emmet-mode company-web web-completion-data tide typescript-mode insert-shebang fish-mode company-shell lv transient yaml-mode web-beautify livid-mode skewer-mode simple-httpd json-mode json-snatcher json-reformat js2-refactor multiple-cursors js2-mode js-doc company-tern tern coffee-mode yapfify pyvenv pytest pyenv-mode py-isort pip-requirements live-py-mode hy-mode dash-functional helm-pydoc cython-mode company-anaconda anaconda-mode pythonic csv-mode xterm-color unfill smeargle shell-pop orgit org-projectile org-category-capture org-present org-pomodoro alert log4e gntp org-mime org-download mwim multi-term mmm-mode markdown-toc markdown-mode magit-gitflow htmlize helm-gitignore helm-company helm-c-yasnippet gnuplot gitignore-mode gitconfig-mode gitattributes-mode git-timemachine git-messenger git-link git-gutter-fringe+ git-gutter-fringe fringe-helper git-gutter+ git-gutter gh-md fuzzy flyspell-correct-helm flyspell-correct flycheck-pos-tip pos-tip flycheck evil-magit magit magit-popup git-commit ghub let-alist with-editor eshell-z eshell-prompt-extras esh-help diff-hl company-statistics company auto-yasnippet yasnippet auto-dictionary ac-ispell auto-complete ws-butler winum which-key volatile-highlights vi-tilde-fringe uuidgen use-package toc-org spaceline powerline restart-emacs request rainbow-delimiters popwin persp-mode pcre2el paradox spinner org-plus-contrib org-bullets open-junk-file neotree move-text macrostep lorem-ipsum linum-relative link-hint indent-guide hydra hungry-delete hl-todo highlight-parentheses highlight-numbers parent-mode highlight-indentation helm-themes helm-swoop helm-projectile helm-mode-manager helm-make projectile pkg-info epl helm-flx helm-descbinds helm-ag google-translate golden-ratio flx-ido flx fill-column-indicator fancy-battery eyebrowse expand-region exec-path-from-shell evil-visualstar evil-visual-mark-mode evil-unimpaired evil-tutor evil-surround evil-search-highlight-persist evil-numbers evil-nerd-commenter evil-mc evil-matchit evil-lisp-state smartparens evil-indent-plus evil-iedit-state iedit evil-exchange evil-escape evil-ediff evil-args evil-anzu anzu evil goto-chg undo-tree eval-sexp-fu highlight elisp-slime-nav dumb-jump f dash s diminish define-word column-enforce-mode clean-aindent-mode bind-map bind-key auto-highlight-symbol auto-compile packed aggressive-indent adaptive-wrap ace-window ace-link ace-jump-helm-line helm avy helm-core popup async))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
