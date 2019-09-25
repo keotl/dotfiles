@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: Redux action type + action creator
+# key: raction
+# --
+export type ${1:$(upcase-first (snake-to-camel yas-text))} = {
+  type: typeof ${1:MY_ACTION},
+  $2
+}
+
+export function ${1:$(snake-to-camel yas-text)}(${2:$(replace-regexp-in-string ";\n*" "," yas-text)}): ${1:$(upcase-first (snake-to-camel yas-text))} {
+  return {
+    type: $1,
+    ${2:$(replace-regexp-in-string ":.*$" "," yas-text)}
+    $0
+  }
+}

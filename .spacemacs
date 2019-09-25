@@ -313,6 +313,7 @@ executes.
 before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq x-gtk-use-system-tooltips nil)
+  (load-file "~/.emacs-functions.el")
 
   ;; Savoy Truffle theme
   (custom-set-variables '(spacemacs-theme-custom-colors
@@ -359,6 +360,7 @@ you should place your code here."
   (setq neo-smart-open t)
   (setq shell-file-name "/bin/bash")
   (setq aw-keys '(?a ?u ?i ?e ?, ?c ?t ?s ?r))
+  (setq yas-snippet-dirs '("~/.snippets"))
 
   (defun isearch-exit-mark-match ()
     "Exit isearch and mark the current match."
@@ -408,7 +410,7 @@ you should place your code here."
   
   ;; (spacemacs/set-leader-keys "mà" 'tide-fix)
 
-  (setq tide-tsserver-executable "/home/atreides/apps/TypeScript/built/local/tsserver.js")
+  ;; (setq tide-tsserver-executable "/home/atreides/apps/TypeScript/built/local/tsserver.js")
   (add-hook 'typescript-mode-hook
             (lambda ()
               (local-set-key (kbd "C-à") 'tide-fix)
@@ -422,7 +424,7 @@ you should place your code here."
   (global-set-key (kbd "M-j") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back
   (global-set-key (kbd "C-x C-/") 'undo-tree-redo)
-
+  (global-set-key (kbd "M-m i i") 'yas-expand)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

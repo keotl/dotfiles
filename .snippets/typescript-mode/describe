@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: react-test
+# key: describe
+# --
+import { cleanup, render } from "@testing-library/react";
+import * as React from 'react';
+
+describe("`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`", () => {
+  it("$1", () => {
+    $0
+  });
+
+  afterEach(cleanup)
+});

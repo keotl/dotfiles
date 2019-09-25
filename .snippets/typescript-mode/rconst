@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: redux action type
+# key: rconst
+# --
+export const $1 = "$1";
