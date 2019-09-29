@@ -1,3 +1,3 @@
 function fish_greeting
-	fortune -s fortunes literature
+	fortune ~/apps/irulan/mp -s fortunes literature
 end
