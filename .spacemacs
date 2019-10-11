@@ -70,7 +70,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(yasnippet-snippets)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -330,7 +330,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                             (const . "#10A5E1")
                             (comment . "#808080")
                             (comment-bg . "#0A0A15")
-                            (comp . "#FFA322")
+                            ;; (comp . "#FFA322")
                             (comp . "#F84ED0")
                             (var . "#F84ED0")
                             (highlight . "#073447")
@@ -338,6 +338,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
                             (err . "#BC3F3C")
                             (war . "#BC3F3C")
                             (cursor . "#A9B7C6")
+
+                            
 
                             (ttip-bg . "#040D26")
                             (ttip-sl . "#073447")
@@ -355,6 +357,9 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  (smartparens-global-mode)
+
   (setq scroll-error-top-bottom 'true)
   (setq javascript-fmt-tool 'prettier)
   (setq neo-smart-open t)
@@ -388,14 +393,12 @@ you should place your code here."
     (setq truncate-lines t)
     (setq tab-width 4)
     (setq evil-shift-width 4)
+    (setq omnisharp-company-ignore-case nil)
     (electric-pair-local-mode 1) ;; Emacs 25
     (local-set-key (kbd "C-à") 'omnisharp-run-code-action-refactoring)
     (local-set-key (kbd "C-c C-f") 'omnisharp-code-format-entire-file)
     (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
     (local-set-key (kbd "C-x C-<return>") 'omnisharp-go-to-definition)
-    (local-set-key (kbd "M-m m c t t") 'omnisharp-unit-test-at-point)
-    (local-set-key (kbd "M-m m c t b") 'omnisharp-unit-test-buffer)
-    (local-set-key (kbd "M-m m c t a") 'omnisharp-unit-test-all)
 
     (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
     (local-set-key (kbd "C-c C-c") 'recompile))
@@ -416,15 +419,18 @@ you should place your code here."
               (local-set-key (kbd "C-à") 'tide-fix)
               (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
               (local-set-key (kbd "C-c C-f") 'prettier-js)
-              (local-set-key (kbd "C-x C-<return>") 'typescript/jump-to-type-def)
+              (local-set-key (kbd "C-x C-<return>") 'tide-jump-to-definition)
               (local-set-key (kbd "M-m m i o") 'tide-organize-imports)
               ))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
+
+
 
   (global-set-key (kbd "M-j") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back
   (global-set-key (kbd "C-x C-/") 'undo-tree-redo)
   (global-set-key (kbd "M-m i i") 'yas-expand)
+
   )
 
 ;; Do not write anything past this comment. This is where Emacs will

@@ -5,7 +5,7 @@
 import { cleanup, render } from "@testing-library/react";
 import * as React from 'react';
 
-describe("`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`", () => {
+describe("`(file-name-base buffer-file-name)`", () => {
   it("$1", () => {
     $0
   });

@@ -1,0 +1,14 @@
+# -*- mode: snippet -*-
+# name: new C# interface
+# key: interface
+# --
+namespace `(replace-regexp-in-string "\\/" "."
+               (replace-regexp-in-string "^.*\\(src\\|test\\)\\/" ""
+                  (replace-regexp-in-string "\\/$" ""
+                     (file-name-directory buffer-file-name))))`
+{
+    public interface `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`
+    {
+        $0
+    }
+}

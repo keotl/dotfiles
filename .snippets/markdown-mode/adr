@@ -1,0 +1,22 @@
+# -*- mode: snippet -*-
+# name: Architecture design document template
+# key: adr
+# --
+# `(insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)"))` ${1:My Descriptive Title}
+
+## Status 📈
+${2:$$(yas-choose-value '("Proposed ❓" "Accepted ✅"))}
+<!-- Proposed ❓ -->
+<!-- Accepted ✅ -->
+
+## Context 🌲
+${3:Since the beginning of time...}
+
+## Decision 👨‍⚖️
+$4
+
+## Consequences ✨
+$5
+
+## Keywords 📖
+$6

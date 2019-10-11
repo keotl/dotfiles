@@ -1,0 +1,26 @@
+# -*- mode: snippet -*-
+# name: c# exception
+# key: exception
+# --
+using System;
+
+namespace `(replace-regexp-in-string "\\/" "."
+                (replace-regexp-in-string "^.*\\(src\\|test\\)\\/" ""
+                     (replace-regexp-in-string "\\/$" ""
+                          (file-name-directory buffer-file-name))))`
+{
+    public class `(file-name-base buffer-file-name)` : Exception
+    {
+        public `(file-name-base buffer-file-name)`() : base("$0")
+        {
+        }
+
+        public `(file-name-base buffer-file-name)`(string message) : base(message)
+        {
+        }
+
+        public `(file-name-base buffer-file-name)`(string message, Exception innerException) : base(message, innerException)
+        {
+        }
+    }
+}
