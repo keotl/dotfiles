@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: public attribute get/set
+# key: public
+# --
+public ${1:} $1 { get; set; }

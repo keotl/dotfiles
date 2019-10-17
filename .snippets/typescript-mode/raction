@@ -3,7 +3,7 @@
 # key: raction
 # --
 export type ${1:$(upcase-first (snake-to-camel yas-text))}Action = {
-  type: typeof ${1:MY_ACTION},
+  type: typeof ${1:MY_ACTION};
   $2
 }
 

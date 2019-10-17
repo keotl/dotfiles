@@ -314,6 +314,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq x-gtk-use-system-tooltips nil)
   (load-file "~/.emacs-functions.el")
+  (set-fontset-font t 'unicode "Symbola" nil 'prepend)
 
   ;; Savoy Truffle theme
   (custom-set-variables '(spacemacs-theme-custom-colors
