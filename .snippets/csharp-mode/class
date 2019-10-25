@@ -2,10 +2,7 @@
 # name: new C# class
 # key: class
 # --
-namespace `(replace-regexp-in-string "\\/" "."
-               (replace-regexp-in-string "^.*\\(src\\|test\\)\\/" ""
-                   (replace-regexp-in-string "\\/$" ""
-                       (file-name-directory buffer-file-name))))`
+namespace `(cs-namespace buffer-file-name)`
 {
     public class `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`
     {

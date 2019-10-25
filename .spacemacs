@@ -314,7 +314,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
 `dotspacemacs/user-config' first."
   (setq x-gtk-use-system-tooltips nil)
   (load-file "~/.emacs-functions.el")
-  (set-fontset-font t 'unicode "Symbola" nil 'prepend)
+  (set-fontset-font t 'unicode "Noto Color Emoji" nil 'prepend)
 
   ;; Savoy Truffle theme
   (custom-set-variables '(spacemacs-theme-custom-colors
@@ -344,8 +344,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
 
                             (ttip-bg . "#040D26")
                             (ttip-sl . "#073447")
-
                             )))
+  
 
   )
 
@@ -431,6 +431,8 @@ you should place your code here."
   (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back
   (global-set-key (kbd "C-x C-/") 'undo-tree-redo)
   (global-set-key (kbd "M-m i i") 'yas-expand)
+
+  (spacemacs/toggle-transparency)
 
   )
 
