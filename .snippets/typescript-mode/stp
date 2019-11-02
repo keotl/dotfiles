@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mapStateToProps
+# key: stp
+# --
+function mapStateToProps(state: ${1:RootState}) {
+  return {
+    $0
+  };
+}

@@ -1,0 +1,25 @@
+# -*- mode: snippet -*-
+# name: new redux reducer
+# key: reducer
+# --
+
+type `(file-name-base buffer-file-name)`State = {
+  $1
+}
+
+type `(file-name-base buffer-file-name)`Actions = ${2:MyAction1 | MyAction2};
+
+const defaultState : `(file-name-base buffer-file-name)`State = {
+  $3
+}
+
+export function `(downcase-first (file-name-base buffer-file-name))`(state: `(file-name-base buffer-file-name)`State = defaultState, action: `(file-name-base buffer-file-name)`Actions) {
+  switch(action.type) {
+  ${2:$(mapconcat
+  (lambda (x) (concat "case " (upcase (camel-to-snake x)) ":\n    return state;"))
+  (split-string (replace-regexp-in-string "\\\\([; ]\\\\|Action\\\\)" "" yas-text) "|")
+  "\n")}
+    default:
+      return state;
+  }
+}

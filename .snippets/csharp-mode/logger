@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: C# logger
+# key: logger
+# --
+private readonly ILogger<`(file-name-base buffer-file-name)`> m_logger;

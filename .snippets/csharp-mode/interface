@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: new C# interface
+# key: interface
+# --
+namespace `(cs-namespace buffer-file-name)`
+{
+    public interface `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`
+    {
+        $0
+    }
+}

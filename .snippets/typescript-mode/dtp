@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: mapDispatchToProps
+# key: dtp
+# --
+function mapDispatchToProps(dispatch: Dispatch) {
+  return {
+    $0
+  }
+}

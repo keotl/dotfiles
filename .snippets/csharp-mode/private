@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: private attribute
+# key: private
+# --
+private readonly ${1:MyClass} m_${1:$(downcase-first yas-text)};

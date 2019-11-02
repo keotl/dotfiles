@@ -1,0 +1,15 @@
+# -*- mode: snippet -*-
+# name: react simple function component
+# key: rc
+# --
+
+type Props = {
+  $1
+}
+
+
+export function `(file-name-base buffer-file-name)`(props: Props) {
+  return (
+    $0
+  );
+}

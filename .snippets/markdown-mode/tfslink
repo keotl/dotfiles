@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: TFS link
+# key: tfslink
+# --
+[#${1:1234}](https://dev.azure.com/GenetecIoTHub/IoTHub/_workitems/edit/$1)

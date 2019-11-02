@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: Markdown link
+# key: link
+# --
+[${1:My Awesome Link}](${2:https://ligature.ca})

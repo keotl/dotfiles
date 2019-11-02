@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: connect react component automatically
+# key: connect
+# --
+export const `(regexp-match (get-string-from-file (buffer-file-name)) "_\\(\\w+\\)" 1)` = connect(${1:$$(yas-choose-value '("mapStateToProps" "null"))}${2:$$(yas-choose-value '(",mapDispatchToProps", ""))})(`(regexp-match (get-string-from-file (buffer-file-name)) "\\(_\\w+\\)" 1)`)
