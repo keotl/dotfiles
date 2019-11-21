@@ -24,5 +24,26 @@
     (buffer-string)))
 
 (defun regexp-match (text regexp num)
+  "Get a match group in a string."
   (string-match regexp text)
   (match-string num text))
+
+
+(defun cs-find-test-file (filename)
+(interactive)
+  (concat (projectile-project-root (replace-regexp-in-string "test/[^/]*" (lambda (x) (concat x ".Tests"))
+   (replace-regexp-in-string ".cs$" "Tests.cs"
+                             (replace-regexp-in-string "src" "test"
+                                                       (replace-regexp-in-string (projectile-project-root) "" filename)
+                                                       )))))
+  )
+
+(defun cs-namespace (buffer-file-name)
+  (replace-regexp-in-string "\\/" "."
+      (replace-regexp-in-string "^.*\\(src\\|test\\)\\/" ""
+           (replace-regexp-in-string "\\/$" ""
+                (file-name-directory buffer-file-name))))
+    )
+
+(defun buffer-text ()
+  (buffer-substring-no-properties 1 (buffer-size)))

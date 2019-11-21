@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: client portal servicecallerexception
+# key: catchsc
+# --
+if (e instanceof ServiceCallerException) {
+  yield put(sendToastNotificationAction("warning", e.message));
+} else {
+  yield put(sendToastNotificationAction("warning", "An error occurred while $0."))
+}

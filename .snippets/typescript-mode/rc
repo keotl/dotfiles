@@ -8,7 +8,7 @@ type Props = {
 }
 
 
-export function `(file-name-base buffer-file-name)`(props: Props) {
+export function _`(file-name-base buffer-file-name)`(props: Props) {
   return (
     $0
   );

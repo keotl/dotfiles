@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: expect store received action
+# key: store.expect
+# --
+expect(store.getActions()).toContainEqual(expect.objectContaining({type: ${1:MY_ACTION}}))
