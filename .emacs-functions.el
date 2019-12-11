@@ -29,13 +29,21 @@
   (match-string num text))
 
 
-(defun cs-find-test-file (filename)
+(defun cs-test-file(filepath)
+  (replace-regexp-in-string "test/[^/]*" (lambda (x) (concat x ".Tests"))
+    (replace-regexp-in-string "/Impl/" "/"
+      (replace-regexp-in-string ".cs$" "Tests.cs"
+        (replace-regexp-in-string "src" "test" filepath))))
+  )
+
+(defun cs-find-test-file ()
 (interactive)
-  (concat (projectile-project-root (replace-regexp-in-string "test/[^/]*" (lambda (x) (concat x ".Tests"))
-   (replace-regexp-in-string ".cs$" "Tests.cs"
-                             (replace-regexp-in-string "src" "test"
-                                                       (replace-regexp-in-string (projectile-project-root) "" filename)
-                                                       )))))
+  (find-file (cs-test-file buffer-file-name))
+  )
+
+(defun cs-find-test-file-other-window ()
+  (interactive)
+  (find-file-other-window (cs-test-file buffer-file-name))
   )
 
 (defun cs-namespace (buffer-file-name)
@@ -47,3 +55,8 @@
 
 (defun buffer-text ()
   (buffer-substring-no-properties 1 (buffer-size)))
+
+(defun is-react-component-file (filename)
+  (if (not (string-match-p "\\.[tj]sx$" filename)
+           nil
+           t)))

@@ -1,0 +1,52 @@
+# -*- mode: snippet -*-
+# name: Saga testcase + default tests
+# key: describe-saga
+# --
+describe('`(file-name-base buffer-file-name)`', () => {
+  it('tracks and clears the fetch action.', async () => {
+    const dispatch = jest.fn();
+
+    await runTheSaga({ dispatch });
+
+    expectThatRequestsHaveBeenTrackedAndCleared(dispatch);
+  });
+
+  it('Sends a toast notification on success.', async () => {
+    const dispatch = jest.fn();
+
+    await runTheSaga({ dispatch });
+
+    expectDispatchedAction(dispatch, {
+    type: SEND_TOAST_NOTIFICATION,
+    notificationType: 'success',
+    });
+  });
+
+  it('Sends a toast notification on error.', async () => {
+    const dispatch = jest.fn();
+    mockServiceCallerError();
+
+    await runTheSaga({ dispatch });
+
+    expectDispatchedAction(dispatch, {
+      type: SEND_TOAST_NOTIFICATION,
+      notificationType: 'warning',
+    });
+  });
+
+  beforeEach(() => {
+    mockFetchSuccess();
+  });
+});
+
+function runTheSaga({ dispatch = jest.fn(), action = ${1:$(replace-regexp-in-string "Saga" "Action" yas-text)}($0) }: any = {}) {
+  return runSaga(
+    {
+      dispatch,
+      getState: () => ({ authentication: { token: '' } }),
+    },
+    ${1:myFetchSaga} as any,
+    action
+  ).toPromise();
+}
+

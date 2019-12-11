@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: genetec c# enum member
+# key: enummember
+# --
+public static readonly `(file-name-base  buffer-file-name)` ${1:MyType} = new `(file-name-base buffer-file-name)`(nameof($1));

@@ -1,0 +1,16 @@
+# -*- mode: snippet -*-
+# name: renderComponent helper for react component testing
+# key: render
+# --
+type PropType = Parameters<typeof `(replace-regexp-in-string "Tests" "" (file-name-base buffer-file-name))`>[0];
+
+const DEFAULT_PROPS : PropType = {
+  $1
+}
+
+function renderComponent(props: Partial<PropType> = {}) {
+return render(<`(replace-regexp-in-string "Tests" "" (file-name-base buffer-file-name))`
+  {...DEFAULT_PROPS}
+  {...props}
+/>);
+}
