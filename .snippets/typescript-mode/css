@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: import styles (css module)
+# key: css
+# --
+import styles from './`(file-name-base buffer-file-name)`.module.css'

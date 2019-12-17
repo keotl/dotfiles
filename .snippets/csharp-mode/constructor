@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: Empty constructor
+# key: constructor
+# --
+public `(file-name-base buffer-file-name)`()
+{
+  $0
+}

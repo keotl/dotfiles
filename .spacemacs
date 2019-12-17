@@ -70,7 +70,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '(yasnippet-snippets)
+   dotspacemacs-excluded-packages '(yasnippet-snippets helm-xref)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -367,6 +367,8 @@ you should place your code here."
   (setq shell-file-name "/bin/bash")
   (setq aw-keys '(?a ?u ?i ?e ?, ?c ?t ?s ?r))
   (setq yas-snippet-dirs '("~/.snippets"))
+  (setq indent-guide-recursive t)
+  
 
   (defun isearch-exit-mark-match ()
     "Exit isearch and mark the current match."
@@ -395,16 +397,19 @@ you should place your code here."
     (setq tab-width 4)
     (setq evil-shift-width 4)
     (setq omnisharp-company-ignore-case nil)
+    (sp-local-pair 'csharp-mode "<" ">")
     (electric-pair-local-mode 1) ;; Emacs 25
     (local-set-key (kbd "C-à") 'omnisharp-run-code-action-refactoring)
     (local-set-key (kbd "C-c C-f") 'omnisharp-code-format-entire-file)
     (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
     (local-set-key (kbd "C-x C-<return>") 'omnisharp-go-to-definition)
-
     (local-set-key (kbd "C-c r r") 'omnisharp-run-code-action-refactoring)
-    (local-set-key (kbd "C-c C-c") 'recompile))
+    (local-set-key (kbd "M-m m g t") 'cs-find-test-file)
+    (local-set-key (kbd "M-m m g T") 'cs-find-test-file-other-window)
+    (local-set-key (kbd "C-c C-c") 'recompile)
+    (local-set-key (kbd "C-c C-b") 'delete-blank-lines)
+  )
 
-  (global-set-key (kbd "C-x o") 'ace-window)
   (add-hook 'csharp-mode-hook 'my-csharp-mode-setup t)
 
   ;; (setq-default dotspacemacs-configuration-layers
@@ -431,6 +436,14 @@ you should place your code here."
   (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back
   (global-set-key (kbd "C-x C-/") 'undo-tree-redo)
   (global-set-key (kbd "M-m i i") 'yas-expand)
+  (global-set-key (kbd "M-m x p") 'spacemacs/move-text-transient-state/move-text-up)
+  (global-set-key (kbd "M-m x n") 'spacemacs/move-text-transient-state/move-text-down)
+
+  (global-set-key (kbd "C-x C-o") 'ace-window)
+  (global-set-key (kbd "C-x o") 'ace-window)
+  (global-set-key (kbd "C-c C-b") 'delete-blank-lines)
+  ;; (global-unset-key (kbd "M-m x K"))
+  ;; (global-unset-key (kbd "M-m x J"))
 
   (spacemacs/toggle-transparency)
 

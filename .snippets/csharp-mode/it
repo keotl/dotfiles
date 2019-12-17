@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: C# xunit test case
+# key: it
+# --
+[Fact]
+public async Task ${1:MyMethod_ShouldDoSomething}()
+{
+  $0
+}

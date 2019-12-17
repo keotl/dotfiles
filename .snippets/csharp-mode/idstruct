@@ -1,0 +1,127 @@
+# -*- mode: snippet -*-
+# name: Genetec Id struct
+# key: idstruct
+# --
+    [JsonObject(MemberSerialization.OptIn)]
+    [JsonConverter(typeof(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`JsonConverter))]
+    [TypeConverter(typeof(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`TypeConverter))]
+    [DebuggerStepThrough]
+    public struct `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` : IEquatable<`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`>, IComparable<`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`>
+    {
+        public static readonly `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` Empty = new `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`(string.Empty);
+
+        private readonly string m_internalId;
+
+        private `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`(string id)
+        {
+            m_internalId = id;
+        }
+
+        public static bool operator ==(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` id, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` other)
+        {
+            return id.Equals(other);
+        }
+
+        public static bool operator !=(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` id, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` other)
+        {
+            return !id.Equals(other);
+        }
+
+        public static bool operator <(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` left, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` right)
+        {
+            return left.CompareTo(right) < 0;
+        }
+
+        public static bool operator >(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` left, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` right)
+        {
+            return left.CompareTo(right) > 0;
+        }
+
+        public static bool operator <=(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` left, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` right)
+        {
+            return left.CompareTo(right) <= 0;
+        }
+
+        public static bool operator >=(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` left, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` right)
+        {
+            return left.CompareTo(right) >= 0;
+        }
+
+        public bool IsEmpty()
+        {
+            return m_internalId == string.Empty;
+        }
+
+        public static bool TryParse(string input, out `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` result)
+        {
+            result = `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`.Empty;
+
+            if (string.IsNullOrEmpty(input))
+                return false;
+
+            result = new `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`(input);
+            return true;
+        }
+
+        public static `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` Parse(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                throw new FormatException();
+
+            return new `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`(input);
+        }
+
+        public bool Equals(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` other)
+        {
+            return m_internalId == other.m_internalId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            return obj is `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` id && Equals(id);
+        }
+
+        public override int GetHashCode()
+        {
+            return m_internalId.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return m_internalId;
+        }
+
+        public int CompareTo(`(file-name-nondirectory (file-name-sans-extension buffer-file-name))` other)
+        {
+            return string.Compare(m_internalId, other.m_internalId, StringComparison.Ordinal);
+        }
+
+        private class `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`JsonConverter : JsonConverter<`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`>
+        {
+            public override void WriteJson(JsonWriter writer, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` value, JsonSerializer serializer)
+            {
+                writer.WriteValue(value.ToString());
+            }
+
+            public override `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` ReadJson(JsonReader reader, Type objectType, `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` existingValue, bool hasExistingValue, JsonSerializer serializer)
+            {
+                try
+                {
+                    return `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`.Parse((string)reader.Value);
+                }
+                catch (FormatException e)
+                {
+                    throw new JsonSerializationException(e.Message, e);
+                }
+            }
+        }
+
+        private class `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`TypeConverter : StringTypeConverter<`(file-name-nondirectory (file-name-sans-extension buffer-file-name))`>
+        {
+            public override `(file-name-nondirectory (file-name-sans-extension buffer-file-name))` FromString(ITypeDescriptorContext context, CultureInfo culture, string value)
+            {
+                return `(file-name-nondirectory (file-name-sans-extension buffer-file-name))`.Parse(value);
+            }
+        }
+    }
