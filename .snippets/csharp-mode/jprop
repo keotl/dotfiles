@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: new json property (newtonsoft)
+# key: jprop
+# --
+[JsonProperty("${1:myProperty}")]
+public ${1:$(upcase-first yas-text)} ${1:$(upcase-first yas-text)} { get; set; }

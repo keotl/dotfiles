@@ -2,4 +2,4 @@
 # name: NSubstitute mock
 # key: mock
 # --
-private readonly $1 m_${1:$(downcase-first (replace-regexp-in-string "^I" "" yas-text))}Mock = Substitute.For<$1>();
+private readonly $1 m_${1:$(downcase-first (replace-regexp-in-string "\\\\(^I\\\\|<.*>\\\\)" "" yas-text))}Mock = Substitute.For<$1>();

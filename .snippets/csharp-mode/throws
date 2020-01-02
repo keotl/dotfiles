@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: Assert.Throws<BadRequest>
+# key: throws
+# --
+var gottenException = await Assert.ThrowsAsync<${1:BadRequestException}>(() => ${2:m_controller.GetAsync()});
+
+${3:Assert.Equal(BadRequestExceptionCode.DeviceNotFound, gottenException.ExceptionCode)}
