@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
-# name: saga template
+# name: saga template fetch
 # key: fetch-saga
 # --
 import { ${1:} } from 'Actions/ActionTypes';

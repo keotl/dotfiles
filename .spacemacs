@@ -379,7 +379,7 @@ you should place your code here."
 
   (define-key isearch-mode-map (kbd "<C-return>") #'isearch-exit-mark-match)
 
-  (setq omnisharp-server-executable-path "/home/atreides/apps/omnisharp/run")
+  ;; (setq omnisharp-server-executable-path "/home/atreides/apps/omnisharp/run")
   (eval-after-load
       'company
     '(add-to-list 'company-backends #'company-omnisharp))
@@ -430,7 +430,15 @@ you should place your code here."
               ))
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . typescript-mode))
 
+  (add-hook 'js2-mode
+            (lambda ()
+              (local-set-key (kbd "C-c C-f") 'prettier-js)
+              ))
 
+  (add-hook 'yaml-mode-hook
+            (lambda ()
+              (indent-guide-mode)
+              ))
 
   (global-set-key (kbd "M-j") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-x C-<backspace>") 'pop-tag-mark) ;; go back

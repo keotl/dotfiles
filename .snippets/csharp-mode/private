@@ -2,4 +2,6 @@
 # name: private attribute
 # key: private
 # --
-private readonly ${1:MyClass} m_${1:$(downcase-first (replace-regexp-in-string "^I" "" yas-text))};
+private readonly ${1:MyClass} m_${1:$(downcase-first
+(replace-regexp-in-string "<.*>" "" (replace-regexp-in-string "^I" "" yas-text))
+)};
