@@ -31,7 +31,7 @@ values."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
-     typescript
+     (typescript :variables typescript-backend 'tide)
      html
      react
      shell-scripts
@@ -445,7 +445,7 @@ you should place your code here."
               (local-set-key (kbd "C-à") 'lsp-execute-code-action)
               (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
               (local-set-key (kbd "C-c C-f") 'lsp-format-buffer)
-              (local-set-key (kbd "C-x C-<return>") 'spacemacs/jump-to-definition)
+              (local-set-key (kbd "C-x C-<return>") 'xref-find-definitions)
               (local-set-key (kbd "M-m m i o") 'lsp-organize-imports)
               ))
 
