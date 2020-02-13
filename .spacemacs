@@ -38,6 +38,9 @@ values."
      yaml
      javascript
      csv
+     (c-c++ :variables c-c++-backend 'lsp-clangd c-c++-default-mode-for-headers 'c++-mode)
+     lsp
+     semantic
      ;; ----------------------------------------------------------------
      ;; Example of useful layers you may want to use right away.
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
@@ -337,7 +340,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                             (highlight . "#073447")
                             (mat . "#FFA322")
                             (err . "#BC3F3C")
-                            (war . "#FFA322")
+                            (war . "#BC3F3C")
                             (cursor . "#A9B7C6")
 
                             
@@ -433,6 +436,15 @@ you should place your code here."
   (add-hook 'js2-mode
             (lambda ()
               (local-set-key (kbd "C-c C-f") 'prettier-js)
+              ))
+
+  (add-hook 'lsp-mode-hook
+            (lambda ()
+              (local-set-key (kbd "C-à") 'lsp-execute-code-action)
+              (local-set-key (kbd "C-c C-à") 'spacemacs/next-error)
+              (local-set-key (kbd "C-c C-f") 'lsp-format-buffer)
+              (local-set-key (kbd "C-c C-<return>") 'spacemacs/jump-to-definition)
+              (local-set-key (kbd "M-m m i o") 'lsp-organize-imports)
               ))
 
   (add-hook 'yaml-mode-hook
