@@ -340,7 +340,7 @@ before packages are loaded. If you are unsure, you should try in setting them in
                             (highlight . "#073447")
                             (mat . "#FFA322")
                             (err . "#BC3F3C")
-                            (war . "#BC3F3C")
+                            (war . "#FFA322")
                             (cursor . "#A9B7C6")
 
                             
@@ -382,7 +382,7 @@ you should place your code here."
 
   (define-key isearch-mode-map (kbd "<C-return>") #'isearch-exit-mark-match)
 
-  ;; (setq omnisharp-server-executable-path "/home/atreides/apps/omnisharp/run")
+  (setq omnisharp-server-executable-path "/home/atreides/apps/omnisharp/run")
   (eval-after-load
       'company
     '(add-to-list 'company-backends #'company-omnisharp))
