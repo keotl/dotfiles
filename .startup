@@ -1,11 +1,11 @@
 #xinput --set-prop appletouch "libinput Tapping Enabled" 1
 #xinput --set-prop appletouch "libinput Accel Speed" -0.625
 #xinput --set-prop appletouch 154 1 0 0 0 0.625 0 0 0 1
-xinput --set-prop 'SynPS/2 Synaptics TouchPad' "libinput Natural Scrolling Enabled" 1
-xinput --set-prop 'SynPS/2 Synaptics TouchPad' "libinput Middle Emulation Enabled" 1
-xinput --set-prop "SynPS/2 Synaptics TouchPad" "libinput Click Method Enabled" 0 1
-xinput --set-prop "TPPS/2 IBM TrackPoint" "libinput Accel Profiles Available" 0,0
 
 #export VISUAL=emacs
 #export EDIITOR="emacs -nw"
-#xmodmap .Xmodmap
+xrandr --output DVI-D-0 --off --output HDMI-0 --off --output DP-5 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --off --output DP-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-1 --off --output DP-0 --off
+xinput --set-prop "Logitech Gaming Mouse G600" "libinput Accel Speed" -0.5
+
+xmodmap .Xmodmap
+xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput 1920x1080+0+0

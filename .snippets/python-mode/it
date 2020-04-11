@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: python unittest test case
+# key: it
+# --
+def test_$1(self):
+    $0

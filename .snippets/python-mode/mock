@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mock
+# key: mock
+# --
+self.${1:$(camel-to-snake yas-text)}_mock : $1 = mock.create_autospec($1)
