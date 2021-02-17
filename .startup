@@ -9,3 +9,6 @@ xinput --set-prop "Logitech Gaming Mouse G600" "libinput Accel Speed" -0.5
 
 xmodmap .Xmodmap
 xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput 1920x1080+0+0
+
+xinput --set-prop "pointer:PloopyCo Trackball" "libinput Accel Speed" 1
+
