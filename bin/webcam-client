@@ -1,0 +1,2 @@
+#!/bin/sh
+ffmpeg -i udp://127.0.0.1:1234 -vcodec rawvideo -pix_fmt yuv420p -f v4l2 -video_size 1280x720 /dev/video0

@@ -1,0 +1,3 @@
+#!/bin/sh
+ffmpeg -re -f v4l2 -input_format mjpeg -video_size 1280x720 -framerate 30 -i /dev/video0 -f mpegts -vb 10M udp://192.168.4.104:1234
+
