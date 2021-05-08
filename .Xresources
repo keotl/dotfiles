@@ -1,4 +1,4 @@
-URxvt.font: xft:fira mono:size=11:antialias=true
+URxvt.font: xft:fira code:size=11:antialias=true
 !URxvt.font: 
 !xft:inconsolata:size=10:antialias=true
 URxvt.letterSpace: -1
@@ -7,9 +7,7 @@ URxvt*transparent: true
 urxvt*shading: 35
 !urxvt.foreground: #ffffff
 urxvt.scrollBar: false
-
-emacs.useXIM: false
-
+!Xft.dpi: 120
 
 ! new custom London Tube
 ! special
@@ -222,8 +220,6 @@ emacs.useXIM: false
 
 
 
-emacs.font:	fira mono 11
-
 ! Enable the extended coloring options
 rofi.color-enabled: true
 !                  bg       border   separator
@@ -244,7 +240,7 @@ rofi.fake-transparency: false
 rofi.location: 0
 rofi.width: 50
 ! rofi.font: Hasklig 12
-rofi.font: fira mono 12
+rofi.font: fira code 16
 rofi.lines: 15
 rofi.fixed-num-lines: true
 

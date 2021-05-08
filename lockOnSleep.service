@@ -3,7 +3,7 @@ Description=Lock on sleep
 Before=sleep.target
 
 [Service]
-User=kento
+User=atreides
 Environment=DISPLAY=:0
 ExecStart=/bin/i3lock -i /home/kento/.lockscreen.png
 Type=forking
