@@ -1,4 +1,5 @@
-nvm use 10.16.0
-function time --description="Time just like in bash"
-    command time --portability $argv
-end
+nvm use 14.15.1
+set -x GPG_TTY (tty)
+set -x SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket)
+gpgconf --launch gpg-agent
+gpg-connect-agent updatestartuptty /bye > /dev/null
