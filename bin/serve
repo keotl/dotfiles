@@ -1,2 +1,15 @@
-#!/bin/sh
-docker run -it -p 8000:80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4
+#!/bin/bash
+PORT=${1:-8000}
+
+CONTAINER=$(docker run --rm -d -p "$PORT":80 -v "$PWD":/usr/local/apache2/htdocs/ httpd:2.4)
+trap "{ docker stop $CONTAINER; exit 0; }" SIGINT SIGTERM SIGKILL SIGHUP SIGQUIT
+echo "Listening on port $PORT. Press 'q' key to quit"
+while read -r -n1 key
+do
+    if [[ $key == 'q' ]];
+    then
+	break;
+    fi;
+done;
+docker stop $CONTAINER
+
