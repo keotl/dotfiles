@@ -1,0 +1,2 @@
+#!/bin/sh
+chromium-browser --proxy-server=socks://localhost:1080 --user-data-dir=/home/atreides/chromium-profiles/proxy
