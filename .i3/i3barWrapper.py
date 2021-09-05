@@ -78,7 +78,7 @@ def get_window_names() -> List[str]:
 def fetch_prismarine_tab_name() -> str:
     try:
         return Stream(get_window_names()) \
-            .firstMatch(lambda x: "Prismarine" in x) \
+            .firstMatch(lambda x: "Prismarine" in x and "Prismarine Player" not in x) \
             .map(lambda x: x[:x.index(" - Prismarine")]) \
             .orElse("Not Playing")
     except Exception as e:
