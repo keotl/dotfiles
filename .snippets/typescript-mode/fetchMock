@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: fetchMock with proper type and import
-# key: fetchMock
-# --
-import { FetchMock } from 'jest-fetch-mock';
-
-const fetchMock = fetch as FetchMock;

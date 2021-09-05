@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# name: connect react component automatically
-# key: connect
-# --
-export const `(regexp-match (get-string-from-file (buffer-file-name)) "_\\(\\w+\\)" 1)` = connect(`(if (string-match "mapStateToProps" (buffer-text)) "mapStateToProps"
-"null")``(if (string-match "mapDispatchToProps" (buffer-text)) ",mapDispatchToProps" "")`)(`
-(regexp-match (get-string-from-file (buffer-file-name)) "\\(_\\w+\\)" 1
-)`);

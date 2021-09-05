@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: Saga select from state
-# key: select
-# --
-yield select((state: ${1:RootState}) => $0)

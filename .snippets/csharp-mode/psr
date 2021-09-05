@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: private-static-readonly
-# key: psr
-# --
-private static readonly

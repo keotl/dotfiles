@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: todo
-# key: todo
-# --
-// TODO - $0  - klauzon `(shell-command-to-string "echo -n $(date +%Y-%m-%d)")`

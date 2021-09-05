@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: nsubstitute arg.any
-# key: any
-# --
-Arg.Any<${1:object}>()

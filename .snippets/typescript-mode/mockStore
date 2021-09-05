@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: mockStore
-# key: mockStore
-# --
-import configureStore from 'redux-mock-store';
-
-const mockStore = configureStore();

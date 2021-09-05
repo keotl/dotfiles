@@ -1,5 +1,0 @@
-# -*- mode: snippet -*-
-# name: import styles (scss module)
-# key: scss
-# --
-import styles from './`(file-name-base buffer-file-name)`.module.scss'
