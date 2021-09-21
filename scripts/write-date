@@ -1,0 +1,3 @@
+#!/bin/bash
+printf $(date +%Y-%m-%d) | xvkbd -utf8 -delay 5 -file -
+
