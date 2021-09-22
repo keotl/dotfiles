@@ -224,13 +224,14 @@ bar {
 
 }
         # position top
-        status_command i3status | ~/.i3/i3barWrapper.py
+        status_command i3status
+#        status_command i3status | ~/.i3/i3barWrapper.py
 }
 
 #Audio media keys
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 1 +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 1 -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 1 toggle
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle
 bindsym XF86MonBrightnessUp exec --no-startup-id exec xbacklight -inc 20
 bindsym XF86MonBrightnessDown exec --no-startup-id exec xbacklight -dec 20
 
