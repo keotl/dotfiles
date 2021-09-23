@@ -1,0 +1,10 @@
+[Unit]
+Description=Execute grub script to unset recordfail after hibernation.
+After=hibernate.target
+
+[Service]
+Type=oneshot
+ExecStart=/etc/pm/sleep.d/10_grub-common thaw
+
+[Install]
+WantedBy=hibernate.target
