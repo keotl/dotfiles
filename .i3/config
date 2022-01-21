@@ -47,7 +47,8 @@ bindsym $mod+Shift+i exec --no-startup-id rofi -show window
 #setup windows for japanese study
 bindsym $mod+Shift+w exec --no-startup-id sh ~/scripts/i3/tagainijisho.sh
 
-bindsym $mod+Shift+l exec i3lock -i /home/atreides/.lockscreen.png
+# bindsym $mod+Shift+l exec i3lock -i /home/atreides/.lockscreen.png
+bindsym $mod+Shift+l exec dm-tool lock
 
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
