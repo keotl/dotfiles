@@ -14,7 +14,7 @@ fstab
 
 /etc/default/grub
 ```
-GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=24a8823d-9927-4515-8806-dce0a45e3a12 resume_offset=160503808"
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash resume=UUID=24a8823d-9927-4515-8806-dce0a45e3a12 resume_offset=160503808 mem_sleep_default=deep"
 ```
 
 ```
@@ -29,3 +29,13 @@ RESUME=UUID=24a8823d-9927-4515-8806-dce0a45e3a12 resume_offset=160503808
 ```
 sudo update-initramfs -c -k all
 ```
+
+/etc/systemd/logind.conf
+```
+HandleLidSwitch=suspend-then-hibernate
+```
+/etc/systemd/sleep.conf
+```
+HibernateDelaySec=60min
+```
+
