@@ -1,0 +1,10 @@
+#!/bin/bash
+if test $# -gt 1; then
+let seconds=$1*60+$2
+else
+let seconds=$1*60
+fi
+date1=$((`date +%s` + $seconds)); 
+while [ "$date1" -ge `date +%s` ]; do 
+    echo -ne "$(date -u --date @$(($date1 - `date +%s` )) +%H:%M:%S)\r"; 
+done
