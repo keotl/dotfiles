@@ -41,8 +41,8 @@ bindsym $mod+Shift+B kill
 
 # start dmenu (a program launcher)
 # bindsym $mod+Shift+i exec --no-startup-id dmenu_run
-bindsym $mod+i exec --no-startup-id rofi -show run
-bindsym $mod+Shift+i exec --no-startup-id rofi -show window
+bindsym $mod+i exec --no-startup-id rofi -show run -font "Fira Code 24"
+bindsym $mod+Shift+i exec --no-startup-id rofi -show window -font "Fira Code 24"
 
 #setup windows for japanese study
 bindsym $mod+Shift+w exec --no-startup-id sh ~/scripts/i3/tagainijisho.sh
