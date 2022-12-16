@@ -8,3 +8,4 @@ xinput --set-button-map $my_mouse_id 1 8 3 4 5 6 7 9 2 10 11 12
 
 xmodmap .Xmodmap
 
+numlockx on
