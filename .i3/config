@@ -239,7 +239,7 @@ bindsym $mod+Shift+q exec setxkbmap -layout ca && xmodmap .Xmodmap
 bindsym $mod+Shift+m exec setxkbmap -layout fr -variant bepo && xmodmap .Xmodmap
 
 #pip mode
-bindsym $mod+comma fullscreen disable; floating enable; sticky enable;
+bindsym $mod+Shift+percent fullscreen disable; floating enable; sticky enable;
 
 hide_edge_borders smart
 
@@ -251,5 +251,6 @@ exec --no-startup-id exec sh .startup
 #exec --no-startup-id exec fcitx
 # exec --no-startup-id exec unclutter -idle 2 -grab
 exec --no-startup-id exec nm-applet
-exec --no-startup-id exec redshift -l 45.423556:-75.700886 -t 6200K:3500K
+exec --no-startup-id exec redshift -l 51:0 -t 6200K:3500K
 exec --no-startup-id exec ibus-daemon
+exec --no-startup-id /usr/bin/gnome-keyring-daemon --start --components=ssh,secrets,pkcs11

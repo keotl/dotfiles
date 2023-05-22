@@ -3,8 +3,9 @@
 !
 remove Lock = Caps_Lock
 ! remove Control = Control_L
-keycode 107 = Caps_Lock
 keysym Caps_Lock = Control_L
 add Lock = Caps_Lock
 add Control = Control_L
 
+! Print screen to caps lock
+keycode 107 = Caps_Lock
