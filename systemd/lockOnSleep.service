@@ -1,12 +1,15 @@
 [Unit]
 Description=Lock on sleep
-Before=sleep.target
+After=sleep.target
+#Before=suspend.target
 
 [Service]
-User=atreides
-Environment=DISPLAY=:0
-ExecStart=/usr/bin/i3lock -i /home/atreides/.lockscreen.png
+User=keotl
+Environment=WAYLAND_DISPLAY=wayland-1
+Environment=XDG_RUNTIME_DIR=/run/user/1000
+ExecStart=/usr/bin/swaylock -i /home/keotl/.lockscreen.png
 Type=forking
+#TimeoutSec=infinity
 
 [Install]
 WantedBy=sleep.target

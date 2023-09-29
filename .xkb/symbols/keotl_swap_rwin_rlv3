@@ -1,0 +1,7 @@
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+        include "fr(bepo)"
+        name[Group1] = "keotl modified fr-bepo";
+        include "ctrl(ralt_rctrl)" // For macbook keyboards with opt next to arrows
+        include "level3(rwin_switch)" // For macbook keyboards with cmd next to spacebar
+};
