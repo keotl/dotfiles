@@ -144,8 +144,8 @@ output * bg ~/.wallpaper.jpg fill
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
+    bindsym $mod+period splitv
     #bindsym $mod+k splith
-    #bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     #bindsym $mod+s layout stacking
@@ -219,14 +219,20 @@ for_window [class="^.*"] border pixel 2
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
+
+for_window [shell="xwayland"] title_format "[XWayland] %title"
+
+
 smart_gaps on
 
 include /etc/sway/config.d/*
 input "type:keyboard" {
     # File at ~/.xkb/symbols/keotl_swap_rwin_rlv3
-    xkb_layout "keotl_swap_rwin_rlv3"
-#    xkb_variant bepo
-    xkb_options ctrl:nocaps,altwin:swap_lalt_lwin
+    #xkb_layout "keotl_swap_rwin_rlv3"
+    xkb_layout fr
+    xkb_variant bepo
+    xkb_options ctrl:nocaps
+    # xkb_options ctrl:nocaps,altwin:swap_lalt_lwin
 }
 
 input "type:touchpad" {
@@ -237,6 +243,6 @@ input "type:touchpad" {
     #pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 }
 
-exec --no-startup-id exec xrdb ~/.Xresources
+# exec --no-startup-id exec xrdb ~/.Xresources
 exec --no-startup-id exec feh --bg-fill ~/.wallpaper.jpg &
 exec --no-startup-id exec nm-applet
