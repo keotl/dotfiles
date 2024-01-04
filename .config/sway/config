@@ -211,7 +211,8 @@ set $default_gaps_inner 8
 set $default_gaps_outer 2
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
-hide_edge_borders smart
+hide_edge_borders --i3 smart
+
 
 default_border none
 for_window [class="^.*"] border pixel 2
