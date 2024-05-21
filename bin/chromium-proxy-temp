@@ -1,0 +1,2 @@
+#!/bin/sh
+chromium-browser --proxy-server=socks://localhost:1080 --user-data-dir=/tmp/foo2
