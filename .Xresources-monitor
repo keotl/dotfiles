@@ -1,14 +1,14 @@
 URxvt.font: xft:fira code:size=12:antialias=true
 !URxvt.letterSpace: -1
 URxvt*transparent: true
-
 urxvt*shading: 35
 
 urxvt.scrollBar: false
-Xft.dpi: 96 !no scaling
-! Xft.dpi: 144 !high dpi scaling
-! emacs.useXIM: false
+Xft.dpi: 96
+!emacs.useXIM: false
 
+
+! special
 *.foreground:   #d9d8d8
 
 ! Neutral
@@ -46,6 +46,7 @@ Xft.dpi: 96 !no scaling
 ! white
 *.color7:       #d9d8d8
 *.color15:      #ffffff
+
 
 ! Enable the extended coloring options
 ! rofi.color-enabled: true

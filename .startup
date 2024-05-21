@@ -1,14 +1,16 @@
-#xinput --set-prop appletouch "libinput Tapping Enabled" 1
-#xinput --set-prop appletouch "libinput Accel Speed" -0.625
-#xinput --set-prop appletouch 154 1 0 0 0 0.625 0 0 0 1
+# Touchpad
+xinput --set-prop 'PIXA3854:00 093A:0274 Touchpad' "libinput Natural Scrolling Enabled" 1
+xinput --set-prop 'PIXA3854:00 093A:0274 Touchpad' 'libinput Accel Speed' 0.25
 
-#export VISUAL=emacs
-#export EDIITOR="emacs -nw"
-xrandr --output DVI-D-0 --off --output HDMI-0 --off --output DP-5 --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-4 --off --output DP-3 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-1 --off --output DP-0 --off
-xinput --set-prop "Logitech Gaming Mouse G600" "libinput Accel Speed" -0.5
+# Elecom
+# Required because of duplicate keyboard/mouse entry
+#my_mouse_id=$(xinput | grep -m 1 "ELECOM ELECOM TrackBall Mouse" | sed 's/^.*id=\([0-9]*\)[ \t].*$/\1/')
+#xinput --set-button-map $my_mouse_id 1 8 3 4 5 6 7 9 2 10 11 12
+
+# Kensington orbit
+my_mouse_id=$(xinput | grep -m 2 "Kensington Orbit Fusion Wireless Trackball" | sed 's/^.*id=\([0-9]*\)[ \t].*$/\1/' | tail -1)
+xinput --set-prop $my_mouse_id "libinput Accel Speed" -1
 
 xmodmap .Xmodmap
-xsetwacom set "Wacom Intuos S 2 Pen stylus" MapToOutput 1920x1080+0+0
 
-xinput --set-prop "pointer:PloopyCo Trackball" "libinput Accel Speed" 1
-
+numlockx on

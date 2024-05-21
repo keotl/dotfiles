@@ -1,0 +1,2 @@
+#!/bin/sh
+chromium-browser --user-data-dir=~/chromium-profiles/youtube --use-gl=desktop --enable-features=VaapiVideoDecoder
