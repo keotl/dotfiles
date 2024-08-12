@@ -229,9 +229,9 @@ smart_gaps on
 
 include /etc/sway/config.d/*
 input "type:keyboard" {
-    xkb_layout fr
-    xkb_variant bepo
-    xkb_options ctrl:nocaps
+    xkb_layout fr,ca
+    xkb_variant bepo,fr
+    xkb_options ctrl:nocaps,grp:win_space_toggle
     xkb_numlock enabled
 }
 
