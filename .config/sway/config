@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show run -font "Fira Code 18"| xargs swaymsg exec --
+set $menu rofi -show combi -modes combi -combi-modes "drun,run,window" -font "Fira Code 18"| xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
@@ -74,6 +74,7 @@ output * bg ~/.wallpaper.jpg fill
 
     # Start your launcher
     bindsym $mod+i exec $menu
+    bindsym $mod+Shift+i exec rofi -show window -font "Fira Code 18"
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
