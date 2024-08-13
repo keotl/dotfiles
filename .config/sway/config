@@ -18,7 +18,7 @@ set $term kitty
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show combi -modes combi -combi-modes "drun,run,window" -font "Fira Code 18"| xargs swaymsg exec --
+set $menu rofi -no-X -show combi -modes combi -combi-modes "run,drun,window" -font "Fira Code 18"| xargs swaymsg exec --
 
 include /etc/sway/config-vars.d/*
 
@@ -201,6 +201,12 @@ mode "resize" {
 }
 bindsym $mod+o mode "resize"
 
+# Media keys
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
 #
 # Status Bar:
 #
@@ -232,18 +238,21 @@ include /etc/sway/config.d/*
 input "type:keyboard" {
     xkb_layout fr,ca
     xkb_variant bepo,fr
-    xkb_options ctrl:nocaps,grp:win_space_toggle
+    xkb_options ctrl:nocaps,grp:lctrl_lwin_toggle
+
     xkb_numlock enabled
 }
 
 input "type:touchpad" {
-    tap disabled
+    tap enabled
     natural_scroll enabled
+    scroll_factor 0.75
 }
 
 # Monitors
 output DP-3 pos 0 0
 output eDP-1 pos 1920 0
+output eDP-1 scale 1.5
 
 workspace 1 output DP-3
 workspace 2 output DP-3
