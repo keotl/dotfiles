@@ -6,7 +6,7 @@
 window#waybar {
 /*    background-color: rgba(43, 48, 59, 0.8); */
     background-color: rgba(0,0,0,0.7);
-    border-bottom: 3px solid rgba(100, 114, 125, 0.6);
+    border-top: 3px solid rgba(100, 114, 125, 0.6);
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -27,7 +27,7 @@ window#waybar.solo {
 
 button {
     /* Use box-shadow instead of border so the text isn't offset */
-    box-shadow: inset 0 -3px transparent;
+    box-shadow: inset 0 3px transparent;
     /* Avoid rounded borders under each button name */
     border: none;
     border-radius: 0;
@@ -36,13 +36,13 @@ button {
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
 /*    background-color: #a37800;*/
-    box-shadow: inset 0 -3px #FFFFFF;
+    box-shadow: inset 0 3px #FFFFFF;
 }
 
 #workspaces button {
@@ -58,7 +58,7 @@ button:hover {
 #workspaces button.focused {
 /*    background-color: #64727D;*/
     background-color: rgba(100,114,125,0.6);
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 #workspaces button.urgent {
@@ -67,7 +67,7 @@ button:hover {
 
 #mode {
     background-color: #64727D;
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 #clock,
@@ -87,7 +87,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
+    padding: 0 4px;
     color: #ffffff;
 }
 
@@ -97,13 +97,13 @@ button:hover {
 }
 
 #network:hover {
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 #clock:hover {
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 #battery:hover {
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 /* If workspaces is the leftmost module, omit left margin */
@@ -246,7 +246,7 @@ label:focus {
 /*    background-color: #2d3436;*/
 }
 #idle_inhibitor:hover {
-    box-shadow: inset 0 -3px #ffffff;
+    box-shadow: inset 0 3px #ffffff;
 }
 
 #idle_inhibitor.activated {
@@ -322,4 +322,8 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+
+.modules-center {
+  margin: 0 80px;
 }
