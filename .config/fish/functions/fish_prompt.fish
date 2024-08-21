@@ -4,6 +4,9 @@ function fish_prompt
     test "$USER" = 'root'
     and echo (set_color --bold red)"#"
 
+    test (hostname) = "toolbox"
+    and echo -n (set_color --bold magenta)"⬢ "
+
     # Main
     echo -n (set_color --bold white)(prompt_pwd) (set_color red)'❯'(set_color yellow)'❯'(set_color green)'❯ '(set_color normal)
     # echo -n (set_color --bold green)(prompt_pwd) (set_color yellow)'❯ '
