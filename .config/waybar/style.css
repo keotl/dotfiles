@@ -55,7 +55,11 @@ button:hover {
     background: rgba(0, 0, 0, 0.2);
 }
 
-#workspaces button.focused {
+#workspaces button.current_output.visible {
+    background-color: rgba(100,114,125,0.4);
+}
+
+#workspaces button.current_output.focused {
 /*    background-color: #64727D;*/
     background-color: rgba(100,114,125,0.6);
     box-shadow: inset 0 3px #ffffff;

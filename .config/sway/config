@@ -39,9 +39,10 @@ output * bg ~/.wallpaper.jpg fill
 #
 # Example configuration:
 #
-exec swayidle -w \
-         timeout 300 'swaylock -f -c 000000' \
-         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' # \
+exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+#exec swayidle -w \
+#         timeout 300 'swaylock -f -c 000000' \
+#         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' # \
 #         before-sleep 'swaylock -f -c 000000'
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
@@ -216,7 +217,7 @@ for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 
 
 for_window [shell="xwayland"] title_format "[XWayland] %title"
-
+for_window [app_id="Thunar" title="^Copying.*"] floating enable
 
 smart_gaps on
 
