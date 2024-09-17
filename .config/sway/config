@@ -75,6 +75,8 @@ exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "outp
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+p exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+    bindsym Mod4+percent fullscreen disable; floating enable; sticky enable;
 #
 # Moving around:
 #
@@ -256,6 +258,4 @@ workspace 8 output DP-3
 workspace 9 output eDP-1
 workspace 10 output DP-3
 
-# exec --no-startup-id exec xrdb ~/.Xresources
-exec --no-startup-id exec feh --bg-fill ~/.wallpaper.jpg &
 exec --no-startup-id exec nm-applet
