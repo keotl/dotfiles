@@ -70,6 +70,8 @@ exec swayidle -w timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "outp
     # mouse button for dragging.
     floating_modifier $mod normal
 
+    focus_wrapping no
+
     # Reload the configuration file
     bindsym $mod+Shift+o reload
 
