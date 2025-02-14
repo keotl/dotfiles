@@ -9,10 +9,10 @@
 # Logo key = Mod4
 set $mod Mod1
 # Home row direction keys, like vim
-set $left t
-set $down s
-set $up r
-set $right n
+set $left c
+set $down t
+set $up s
+set $right r
 # Your preferred terminal emulator
 set $term kitty
 # Your preferred application launcher
