@@ -1,0 +1,166 @@
+#!/bin/bash
+
+# Configuration
+IMAGE_NAME="claude-runner"
+IMAGE_TAG="latest"
+FULL_IMAGE_NAME="${IMAGE_NAME}:${IMAGE_TAG}"
+EXECUTABLE_NAME="claude"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
+# Function to print colored output
+print_status() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+# Prepare persisted home directory files
+prepare_home_dir_files() {
+    mkdir -p "$HOME/.cache/podman-runner-apps/$IMAGE_NAME"
+}
+
+# Function to check if Podman is running
+check_podman() {
+    if ! podman info >/dev/null 2>&1; then
+        print_error "Podman is not running or not accessible"
+        exit 1
+    fi
+}
+
+# Function to check if image exists locally
+image_exists() {
+    podman images --format "table {{.Repository}}:{{.Tag}}" | grep -q "^${FULL_IMAGE_NAME}$"
+}
+
+# Function to build the Podman image
+build_image() {
+    print_status "Building Podman image: ${FULL_IMAGE_NAME}"
+    
+    # Create inline Podmanfile
+    cat << 'EOF' | podman build -t "${FULL_IMAGE_NAME}" -
+FROM ubuntu:24.04
+
+# Install basic tools and dependencies
+RUN apt-get update && apt-get install -y \
+    nodejs npm
+RUN npm install -g @anthropic-ai/claude-code
+
+# Set working directory
+WORKDIR /workspace
+
+# Create a non-root user
+RUN useradd -m -s /bin/bash cliuser && \
+    chown -R cliuser:cliuser /workspace
+
+# Switch to non-root user
+# USER cliuser
+
+# Set default command
+CMD ["/bin/bash"]
+EOF
+
+    if [ $? -eq 0 ]; then
+        print_success "Podman image built successfully"
+    else
+        print_error "Failed to build Podman image"
+        exit 1
+    fi
+}
+
+# Function to run the container interactively
+run_container() {
+    print_status "Starting interactive container..."
+    
+    # Mount current directory to /workspace in container
+    # Enable interactive mode with pseudo-TTY
+    # Add empty anonymous volumes to hide folders we don't want to expose, e.g. .git/
+    podman run --privileged -it --rm \
+        -v "$(pwd):/workspace/$(basename $(pwd))" \
+        -v "$HOME/.cache/podman-runner-apps/$IMAGE_NAME:/root" \
+        -v "/workspace/.git" \
+        -w /workspace/$(basename $(pwd)) \
+        --name "${IMAGE_NAME}-interactive" \
+        "${FULL_IMAGE_NAME}" \
+        "$@"
+}
+
+# Main script logic
+main() {
+    print_status "Podman Interactive CLI Tool Runner"
+    echo "=================================="
+    
+    # Check if Podman is available
+    check_podman
+    
+    # Check if image exists
+    if image_exists; then
+        print_success "Podman image ${FULL_IMAGE_NAME} found locally"
+    else
+        print_warning "Podman image ${FULL_IMAGE_NAME} not found locally"
+        build_image
+    fi
+    prepare_home_dir_files
+    # Run the container interactively
+    run_container "$@"
+}
+
+# Help function
+show_help() {
+    cat << EOF
+Usage: $0 [OPTIONS] [COMMAND]
+
+This script runs a CLI tool interactively inside a Podman container.
+It will automatically build the image if it doesn't exist locally.
+
+OPTIONS:
+    -h, --help      Show this help message
+    -r, --rebuild   Force rebuild of the Podman image
+
+COMMAND:
+    Any command to run inside the container (optional)
+    If no command is provided, starts an interactive bash shell
+
+Examples:
+    $0                          # Start interactive bash session
+    $0 --rebuild                # Force rebuild and start interactive session
+
+EOF
+}
+
+# Parse command line arguments
+while [[ $# -gt 0 ]]; do
+    case $1 in
+        -h|--help)
+            show_help
+            exit 0
+            ;;
+        -r|--rebuild)
+            print_status "Forcing image rebuild..."
+            build_image
+            shift
+            ;;
+        *)
+            # Pass remaining arguments to the container
+            break
+            ;;
+    esac
+done
+
+# Run main function with remaining arguments
+main $EXECUTABLE_NAME "$@"
