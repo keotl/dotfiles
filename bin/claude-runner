@@ -6,6 +6,9 @@ IMAGE_TAG="latest"
 FULL_IMAGE_NAME="${IMAGE_NAME}:${IMAGE_TAG}"
 EXECUTABLE_NAME="claude"
 
+# Global variables
+EXCLUDE_PATHS=""
+
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -86,14 +89,28 @@ EOF
 # Function to run the container interactively
 run_container() {
     print_status "Starting interactive container..."
-    
+
+    # Build exclude volume arguments
+    EXCLUDE_VOLUMES=""
+    if [ -n "$EXCLUDE_PATHS" ]; then
+        IFS=',' read -ra ADDR <<< "$EXCLUDE_PATHS"
+        for path in "${ADDR[@]}"; do
+            # Trim whitespace
+            path=$(echo "$path" | xargs)
+            if [ -n "$path" ]; then
+                EXCLUDE_VOLUMES="$EXCLUDE_VOLUMES -v /workspace/$(basename $(pwd))/$path"
+            fi
+        done
+    fi
+
     # Mount current directory to /workspace in container
     # Enable interactive mode with pseudo-TTY
     # Add empty anonymous volumes to hide folders we don't want to expose, e.g. .git/
     podman run --privileged -it --rm \
         -v "$(pwd):/workspace/$(basename $(pwd))" \
         -v "$HOME/.cache/podman-runner-apps/$IMAGE_NAME:/root" \
-        -v "/workspace/.git" \
+        -v "/workspace/$(basename $(pwd))/.git" \
+        $EXCLUDE_VOLUMES \
         -w /workspace/$(basename $(pwd)) \
         --name "${IMAGE_NAME}-interactive" \
         "${FULL_IMAGE_NAME}" \
@@ -129,16 +146,20 @@ This script runs a CLI tool interactively inside a Podman container.
 It will automatically build the image if it doesn't exist locally.
 
 OPTIONS:
-    -h, --help      Show this help message
-    -r, --rebuild   Force rebuild of the Podman image
+    -h, --help                Show this help message
+    -r, --rebuild             Force rebuild of the Podman image
+    --exclude <paths>         Comma-separated list of directories/files to exclude
+                              from the container using anonymous volumes
 
 COMMAND:
     Any command to run inside the container (optional)
     If no command is provided, starts an interactive bash shell
 
 Examples:
-    $0                          # Start interactive bash session
-    $0 --rebuild                # Force rebuild and start interactive session
+    $0                                    # Start interactive bash session
+    $0 --rebuild                          # Force rebuild and start interactive session
+    $0 --exclude .git,secrets/       # Exclude .git, .env, and secrets/ from container
+    $0 --exclude node_modules,dist        # Exclude node_modules and dist directories
 
 EOF
 }
@@ -154,6 +175,14 @@ while [[ $# -gt 0 ]]; do
             print_status "Forcing image rebuild..."
             build_image
             shift
+            ;;
+        --exclude)
+            if [ -z "$2" ]; then
+                print_error "--exclude option requires a value"
+                exit 1
+            fi
+            EXCLUDE_PATHS="$2"
+            shift 2
             ;;
         *)
             # Pass remaining arguments to the container
