@@ -5,13 +5,16 @@ process-unmapped-keys yes
       "AT Translated Set 2 keyboard"
     )
   )
-(defsrc spc h j k l bspc ralt)
+(defsrc spc h j k l bspc ralt lsft)
 (defalias spc 
-  (tap-hold-press 100 100 spc (layer-while-held arrows) )
+  (tap-hold-press 10 1000 spc (layer-while-held arrows) )
+)
+(defalias lsft
+  (tap-hold-press 1 200 esc lsft)
 )
 
-(defalias ralt (tap-hold-press 100 100 ret ralt))
+(defalias ralt (tap-hold-press 100 1000 ret ralt))
 
-(deflayer base   @spc   h    j    k    l bspc @ralt)
-(deflayer arrows _    left   down up right del ralt)
+(deflayer base   @spc   h    j    k    l bspc @ralt @lsft)
+(deflayer arrows _    left   down up right del ralt lsft)
 
