@@ -1,0 +1,17 @@
+
+module kanata_policy 1.0;
+
+require {
+	type event_device_t;
+	type init_t;
+	type user_home_t;
+	class file { execute execute_no_trans map open read };
+	class chr_file open;
+}
+
+#============= init_t ==============
+allow init_t event_device_t:chr_file open;
+allow init_t user_home_t:file { execute execute_no_trans open read };
+
+#!!!! This avc can be allowed using the boolean 'domain_can_mmap_files'
+allow init_t user_home_t:file map;

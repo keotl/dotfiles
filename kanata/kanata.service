@@ -1,0 +1,12 @@
+[Unit]
+Description=kanata keyboard remapping tool
+
+[Service]
+Type=simple
+User=kanata
+Group=kanata
+ExecStart=/var/home/kanata/bin/kanata -c /var/home/kanata/kanata.kbd
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
