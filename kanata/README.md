@@ -29,3 +29,13 @@ cat kanata_policy.te
 # Install the policy
 sudo semodule -i kanata_policy.pp
 ```
+
+# Disable network access for kanata user
+```
+FW_UID="$(id -u kanata)"
+sudo firewall-cmd --permanent --direct --add-rule ipv4 filter \
+    OUTPUT 0 ! -o lo -m owner --uid-owner ${FW_UID} -j REJECT
+sudo firewall-cmd --permanent --direct --add-rule ipv6 filter \
+    OUTPUT 0 ! -o lo -m owner --uid-owner ${FW_UID} -j REJECT
+sudo firewall-cmd --reload
+```

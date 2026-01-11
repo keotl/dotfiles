@@ -7,7 +7,7 @@ process-unmapped-keys yes
   )
 (defsrc spc h j k l bspc ralt lsft)
 (defalias spc 
-  (tap-hold-press 10 1000 spc (layer-while-held arrows) )
+  (tap-hold-release 200 200 spc (layer-while-held arrows) )
 )
 (defalias lsft
   (tap-hold-press 1 200 esc lsft)
@@ -16,5 +16,5 @@ process-unmapped-keys yes
 (defalias ralt (tap-hold-press 100 1000 ret ralt))
 
 (deflayer base   @spc   h    j    k    l bspc @ralt @lsft)
-(deflayer arrows _    left   down up right del ralt lsft)
+(deflayer arrows _    left   down up right del bspc lsft)
 
