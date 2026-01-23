@@ -16,5 +16,5 @@ process-unmapped-keys yes
 (defalias ralt (tap-hold-press 100 1000 ret ralt))
 
 (deflayer base   @spc   h    j    k    l bspc @ralt @lsft)
-(deflayer arrows _    left   down up right del bspc lsft)
+(deflayer arrows _    left   down up right del del lsft)
 
