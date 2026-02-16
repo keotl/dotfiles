@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Configuration
-IMAGE_NAME="claude-runner"
+IMAGE_NAME="opencode-runner"
 IMAGE_TAG="latest"
 FULL_IMAGE_NAME="${IMAGE_NAME}:${IMAGE_TAG}"
-EXECUTABLE_NAME="/root/.local/bin/claude"
+EXECUTABLE_NAME="opencode"
 
 # Global variables
 EXCLUDE_PATHS=""
@@ -54,36 +54,30 @@ image_exists() {
 # Function to build the Podman image
 build_image() {
     print_status "Building Podman image: ${FULL_IMAGE_NAME}"
-    
     # Create inline Podmanfile
     cat << 'EOF' | podman build -t "${FULL_IMAGE_NAME}" -
-FROM ubuntu:24.04
+FROM docker.io/oven/bun:1.3.5-alpine AS build
+RUN apk add git
+WORKDIR /app
+RUN git clone --depth=1 https://gitea.i.lhr.ligature.ca/keotl/opencode.git
+WORKDIR /app/opencode
+RUN bun install
+RUN ./packages/opencode/script/build.ts --single
 
-# Install basic tools and dependencies
-RUN apt-get update && apt-get install -y \
-    nodejs npm curl jq
+FROM alpine:3.23
+RUN apk add libstdc++ libgcc
 
-
-RUN apt-get install -y openjdk-21-jdk-headless
-RUN curl -fL https://github.com/coursier/coursier/releases/latest/download/cs-x86_64-pc-linux.gz | gzip -d > cs && chmod +x cs
-
-RUN ./cs install --dir /usr/local/bin scalac:3.7.4 sbt:1.12.0 scalafmt
-ENV PATH="/root/.local/share/coursier/bin:$PATH"
-
-RUN npm install -g bun
+COPY --from=build /app/opencode/packages/opencode/dist/opencode-linux-x64-musl/bin/opencode /usr/bin/opencode
 
 # Set working directory
 WORKDIR /workspace
 
 # Create a non-root user
-RUN useradd -m -s /bin/bash cliuser && \
+RUN adduser -D cliuser && \
     chown -R cliuser:cliuser /workspace
 
 # Switch to non-root user
 # USER cliuser
-
-RUN curl -fsSL https://claude.ai/install.sh | bash
-ENV PATH="/root/.local/bin:$PATH"
 
 # Set default command
 CMD ["/bin/bash"]
@@ -118,6 +112,8 @@ run_container() {
     # Enable interactive mode with pseudo-TTY
     # Add empty anonymous volumes to hide folders we don't want to expose, e.g. .git/
     podman run --privileged -it --rm \
+        -p 6499:6499 \
+        -p 4096:4096 \
         -v "$(pwd):/workspace/$(basename $(pwd))" \
         -v "$HOME/.cache/podman-runner-apps/$IMAGE_NAME:/root" \
         -v "/workspace/$(basename $(pwd))/.git" \
@@ -163,7 +159,6 @@ OPTIONS:
                               from the container using anonymous volumes
     --shell                   Bypass EXECUTABLE_NAME and start a /bin/bash shell instead
 
-
 COMMAND:
     Any command to run inside the container (optional)
     If no command is provided, starts an interactive bash shell
@@ -171,7 +166,7 @@ COMMAND:
 Examples:
     $0                                    # Start interactive bash session
     $0 --rebuild                          # Force rebuild and start interactive session
-    $0 --exclude .git,secrets/       # Exclude .git, .env, and secrets/ from container
+    $0 --exclude .git,secrets/       # Exclude .git, and secrets/ from container
     $0 --exclude node_modules,dist        # Exclude node_modules and dist directories
     $0 --shell                            # Directly start a bash shell inside the container
 
