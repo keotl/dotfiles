@@ -1,0 +1,47 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "ollama": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "marcel-galarneau",
+      "options": {
+        "baseURL": "http://10.12.100.5:8080/v1"
+      },
+      "models": {
+        "minimax-m2.5-Q3": {
+          "name": "minimax-m2.5-Q3"
+        },
+        "gpt-oss-120b": {
+          "name": "gpt-oss-120b"
+        },
+        "nanbeige4.1-3B": {
+          "name": "nanbeige4.1-3B"
+        },
+
+        "qwen3-coder-next-q4": {
+          "name": "qwen3-coder-next-q4"
+        }
+      }
+    }
+  },
+  "permission": {
+    "*": "ask",
+    "edit": "allow",
+    "bash": {
+      "*": "ask",
+      "rm *": "deny"
+    },
+    "webfetch": "ask",
+    "websearch": "ask",
+    "codesearch": "ask",
+    "read": "allow",
+    "glob": "allow",
+    "grep": "allow",
+    "list": "allow",
+    "task": "allow",
+    "skill": "allow",
+    "lsp": "allow",
+    "todoread": "allow",
+    "todowrite": "allow"
+  }
+}
