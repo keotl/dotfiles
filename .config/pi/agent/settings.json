@@ -1,0 +1,5 @@
+{
+  "lastChangelogVersion": "0.70.0",
+  "defaultProvider": "marcel",
+  "defaultModel": "gemma-4-26b-a4b-q8"
+}

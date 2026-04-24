@@ -1,0 +1,13 @@
+{
+  "providers": {
+    "marcel": {
+      "baseUrl": "http://10.12.100.5:8080/v1",
+      "api": "openai-completions",
+      "apiKey": "unused",
+      "models": [
+        { "id": "qwen3-coder-next-q4", "name": "qwen3-coder-next-q4", "contextWindow": 200000 },
+        { "id": "gemma-4-26b-a4b-q8", "name": "gemma-4-26b-a4b-q8", "contextWindow": 200000 }
+      ]
+    }
+  }
+}
