@@ -1,0 +1,45 @@
+networks:
+  proxied:
+    name: proxied
+    internal: true
+  upstream:
+    name: upstream
+    ipam:
+      config:
+        - subnet: 192.168.89.0/24
+
+services:
+  mitmproxy:
+    image: mitmproxy/mitmproxy:latest
+    container_name: mitmproxy
+    hostname: mitmproxy
+    networks:
+      proxied:
+        priority: 0
+      upstream:
+        priority: 1000
+        ipv4_address: 192.168.89.10
+    environment:
+      PYTHONUNBUFFERED: "1"
+      MITM_MODE: "allowlist"
+      MITM_LIST: "/addons/allowlist.txt"
+    ports:
+      - "8080:8080"
+    command: mitmweb --web-host 192.168.89.10 --set web_password=${MITM_WEB_PASSWORD:-changeme} -s /addons/filter.py
+    privileged: true
+    volumes:
+      - ./mitmproxy-data:/home/mitmproxy/.mitmproxy
+      - ./mitmproxy-addons:/addons:ro
+    restart: always
+
+  mitmweb-forwarder:
+    image: docker.io/alpine/socat:latest
+    container_name: mitmweb-forwarder
+    networks:
+      - upstream
+    ports:
+      - "8081:8081"
+    command: TCP-LISTEN:8081,fork,reuseaddr TCP:192.168.89.10:8081
+    depends_on:
+      - mitmproxy
+    restart: always

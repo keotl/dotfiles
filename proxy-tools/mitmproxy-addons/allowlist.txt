@@ -1,0 +1,15 @@
+# --- Package registries ---
+registry.npmjs.org
+pypi.org
+files.pythonhosted.org
+repo1.maven.org
+*.sonatype.org
+
+# --- Coursier / sbt / Scala ---
+*.scala-lang.org
+*.scala-sbt.org
+
+# --- Ubuntu / Debian apt (if apt-get is run inside the container) ---
+archive.ubuntu.com
+security.ubuntu.com
+ports.ubuntu.com
