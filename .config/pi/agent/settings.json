@@ -1,5 +1,8 @@
 {
-  "lastChangelogVersion": "0.70.0",
+  "lastChangelogVersion": "0.72.1",
   "defaultProvider": "marcel",
-  "defaultModel": "gemma-4-26b-a4b-q8"
+  "defaultModel": "qwen3.6-27b-q8",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false,
+  "enableInstallTelemetry": false
 }
