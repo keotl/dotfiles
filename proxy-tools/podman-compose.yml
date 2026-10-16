@@ -25,7 +25,7 @@ services:
       MITM_LIST: "/addons/allowlist.txt"
     ports:
       - "8080:8080"
-    command: mitmweb --web-host 192.168.89.10 --set web_password=${MITM_WEB_PASSWORD:-changeme} -s /addons/filter.py
+    command: mitmweb --web-host 192.168.89.10 --set web_password=${MITM_WEB_PASSWORD:-changeme} --set tcp_timeout=7200 -s /addons/filter.py -s /addons/stream_sse.py
     privileged: true
     volumes:
       - ./mitmproxy-data:/home/mitmproxy/.mitmproxy
