@@ -1,0 +1,2 @@
+#!/bin/sh
+toolbox run --container=emacs fish -lc 'exec ~/apps/emacs31/src/emacs $argv' $argv
