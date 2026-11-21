@@ -1,7 +1,7 @@
 {
   "providers": {
     "marcel": {
-      "baseUrl": "http://10.12.100.5:8080/v1",
+      "baseUrl": "http://10.99.0.8:8080/v1",
       "api": "openai-completions",
       "apiKey": "unused",
       "models": [
@@ -11,16 +11,9 @@
           "contextWindow": 200000
         },
         {
-          "id": "qwen3.6-27b-q8",
-          "name": "qwen3.6-27b-q8",
-          "contextWindow": 200000
-        },
-        {
-          "id": "gemma-4-26b-a4b-q8",
-          "name": "gemma-4-26b-a4b-q8",
-          "contextWindow": 200000,
-          "reasoning": true,
-          "input": ["text", "image"]
+          "id": "qwen3.8-27b-q8",
+          "name": "qwen3.8-27b-q8",
+          "contextWindow": 250000
         }
       ]
     }

@@ -1,7 +1,7 @@
 {
-  "lastChangelogVersion": "0.72.1",
+  "lastChangelogVersion": "0.73.1",
   "defaultProvider": "marcel",
-  "defaultModel": "qwen3.6-27b-q8",
+  "defaultModel": "qwen3.8-27b-q8",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": false,
   "enableInstallTelemetry": false
